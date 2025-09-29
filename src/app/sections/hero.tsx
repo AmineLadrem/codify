@@ -117,8 +117,9 @@ export default function Hero() {
             width: "215px",
             height: "38px",
             borderRadius: "10566.32px",
-            border: "1px solid rgba(161, 161, 170, 0.5)",
+            border: "none",
             background: "transparent",
+            boxShadow: "0px 0px 0px 0px rgba(255, 255, 255, 1), 0px 0px 0px 1.06px rgba(255, 255, 255, 0.1), 0px 0px 0px 0px rgba(0, 0, 0, 0)",
           }}
         >
           <span

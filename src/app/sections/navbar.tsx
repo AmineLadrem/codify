@@ -108,10 +108,26 @@ export default function Navbar() {
           style={{
             width: "137.91px",
             height: "38px",
-            border: "1.5px solid rgba(161, 161, 170, 0.5)",
+            border: "1.5px solid transparent",
             background: "transparent",
+            position: "relative",
           }}
         >
+          {/* Gradient Border */}
+          <div
+            style={{
+              position: "absolute",
+              inset: -1.5,
+              borderRadius: "9999px",
+              padding: "1.5px",
+              background: "linear-gradient(84.71deg, #031919 3.64%, #061F1F 53.81%, #0B3E3E 81.73%, #115D5D 91.67%, #FFFFFF 102.09%)",
+              WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+              WebkitMaskComposite: "xor",
+              maskComposite: "exclude",
+              pointerEvents: "none",
+              zIndex: -1,
+            }}
+          />
           <span
             style={{
               fontFamily: "Inter, sans-serif",
