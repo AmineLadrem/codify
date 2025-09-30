@@ -140,7 +140,7 @@ export default function Hero() {
         <div
           style={{
             position: "absolute",
-            bottom: "0",
+            bottom: "-1px",
             left: "50%",
             transform: "translateX(-50%)",
             width: "107.69px",
