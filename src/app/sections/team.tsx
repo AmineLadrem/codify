@@ -5,12 +5,12 @@ export default function Team() {
     {
       name: "CHETTOUF Islem",
       role: "CEO & Front-end Developer",
-      image: "/team-1.jpg",
+      image: "/IMG_0810_bg_removed.png.png",
     },
     {
-      name: "AWPR",
+      name: "Abd-Ul-Haq Amine Ladrem",
       role: "Back-end Developer",
-      image: "/team-2.jpg",
+      image: "/awpr.png",
     },
     {
       name: "ARAB Rimel",
@@ -97,7 +97,7 @@ export default function Team() {
           className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg max-w-3xl mx-auto px-4"
           style={{
             fontFamily: "Inter, sans-serif",
-            fontWeight: 400,
+            fontWeight: 500,
             lineHeight: "1.6",
             color: "rgba(183, 183, 183, 1)",
             textAlign: "center",

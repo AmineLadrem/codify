@@ -13,7 +13,6 @@ export default function Navbar() {
     { name: "Services", href: "#services" },
     { name: "Projects", href: "#projects" },
     { name: "Process", href: "#process" },
-    { name: "Blog", href: "#blog" },
   ];
 
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
