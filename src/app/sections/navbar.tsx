@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const navLinks = [
     { name: "About Us", href: "#about" },
     { name: "Team", href: "#team" },
@@ -20,14 +23,15 @@ export default function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    setIsMenuOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-8 py-6">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 py-4 md:py-6">
       <div 
-        className="max-w-[1440px] mx-auto flex items-center justify-between px-8 py-4 backdrop-blur-sm"
+        className="max-w-[1440px] mx-auto flex items-center justify-between px-4 sm:px-6 md:px-8 py-3 md:py-4 backdrop-blur-sm"
         style={{
-          borderRadius: "32px",
+          borderRadius: "20px",
           border: "1px solid transparent",
           background: "rgba(0, 0, 0, 0.4)",
           backgroundClip: "padding-box",
@@ -39,7 +43,7 @@ export default function Navbar() {
           style={{
             position: "absolute",
             inset: -1,
-            borderRadius: "32px",
+            borderRadius: "20px",
             padding: "1px",
             background: "linear-gradient(268.79deg, #0E4D47 -18.22%, #0B0C10 124.63%)",
             WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
@@ -50,30 +54,30 @@ export default function Navbar() {
           }}
         />
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 z-10">
           <Link href="/">
             <Image
               src="/logo.svg"
               alt="Codify Agency"
-              width={104.31}
-              height={33.98}
+              width={80}
+              height={26}
+              className="w-20 h-auto sm:w-24 md:w-[104.31px]"
               priority
             />
           </Link>
         </div>
 
-        {/* Navigation Links */}
-        <div className="flex items-center gap-8">
+        {/* Desktop Navigation Links */}
+        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleScrollToSection(e, link.href)}
-              className="text-white capitalize cursor-pointer nav-link relative"
+              className="text-white capitalize cursor-pointer nav-link relative text-sm xl:text-base"
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 500,
-                fontSize: "16px",
                 lineHeight: "24px",
                 letterSpacing: "0px",
               }}
@@ -82,6 +86,37 @@ export default function Navbar() {
             </a>
           ))}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden flex-shrink-0 z-10 p-2 text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {isMenuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+
         <style jsx>{`
           .nav-link::after {
             content: '';
@@ -102,12 +137,12 @@ export default function Navbar() {
           }
         `}</style>
 
-        {/* Contact Us Button */}
+        {/* Contact Us Button - Desktop */}
         <button
-          className="flex-shrink-0 rounded-full transition-all hover:bg-white/5"
+          className="hidden lg:flex flex-shrink-0 rounded-full transition-all hover:bg-white/5 items-center justify-center"
           style={{
-            width: "137.91px",
-            height: "38px",
+            width: "120px",
+            height: "36px",
             border: "1.5px solid transparent",
             background: "transparent",
             position: "relative",
@@ -129,10 +164,10 @@ export default function Navbar() {
             }}
           />
           <span
+            className="text-xs xl:text-sm"
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 400,
-              fontSize: "13.9px",
               lineHeight: "24px",
               letterSpacing: "0px",
               textTransform: "uppercase",
@@ -143,6 +178,51 @@ export default function Navbar() {
           </span>
         </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div
+          className="lg:hidden fixed top-[80px] left-4 right-4 backdrop-blur-md rounded-2xl overflow-hidden"
+          style={{
+            background: "rgba(0, 0, 0, 0.95)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
+          <div className="flex flex-col py-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleScrollToSection(e, link.href)}
+                className="text-white capitalize px-6 py-3 hover:bg-white/5 transition-colors"
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "16px",
+                  lineHeight: "24px",
+                }}
+              >
+                {link.name}
+              </a>
+            ))}
+            <button
+              className="mx-6 mt-4 rounded-full transition-all hover:bg-white/5"
+              style={{
+                height: "38px",
+                border: "1.5px solid rgba(255, 255, 255, 0.2)",
+                background: "transparent",
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 400,
+                fontSize: "13px",
+                textTransform: "uppercase",
+                color: "#A1A1AA",
+              }}
+            >
+              Contact Us
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

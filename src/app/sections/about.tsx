@@ -4,44 +4,70 @@ export default function About() {
   return (
     <section 
       id="about"
-      className="flex flex-col items-center px-8 py-16"
+      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-2 sm:pt-3 md:pt-4 pb-12 sm:pb-16 md:pb-20"
       style={{
-        minHeight: "773px",
+        minHeight: "auto",
       }}
     >
-      <Image
-        src="/Frame 1618874015 (1).svg"
-        alt="About Us"
-        width={520}
-        height={24}
-      />
-      
-      {/* Content Container - Responsive to Navbar Width */}
-      <div className="max-w-[1440px] mx-auto w-full flex gap-5 mt-16 justify-between">
-        {/* Left Content Frame */}
-        <div
+      {/* About Us Label with Vectors */}
+      <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12">
+        {/* Left Vector */}
+        <Image
+          src="/Vector 13.svg"
+          alt=""
+          width={233}
+          height={24}
+          className="hidden sm:block w-32 md:w-40 lg:w-[233px] h-auto"
+        />
+        
+        {/* About Us Text */}
+        <span
+          className="mx-1 sm:mx-1.5 md:mx-2"
           style={{
-            width: "660px",
-            height: "344px",
-            position: "relative",
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 300,
+            fontSize: "16px",
+            lineHeight: "24px",
+            letterSpacing: "-1.8px",
+            textAlign: "center",
+            color: "rgba(173, 178, 177, 1)",
+            opacity: 1,
+            whiteSpace: "nowrap",
+            display: "inline-block",
           }}
         >
+          About Us
+        </span>
+        
+        {/* Right Vector */}
+        <Image
+          src="/Vector 9.svg"
+          alt=""
+          width={233}
+          height={24}
+          className="hidden sm:block w-32 md:w-40 lg:w-[233px] h-auto"
+        />
+      </div>
+      
+      {/* Content Container - Responsive to Navbar Width */}
+      <div className="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16 mt-8 sm:mt-12 md:mt-16 items-center lg:items-start lg:justify-between">
+        {/* Left Content Frame */}
+        <div className="w-full lg:w-auto lg:flex-1 max-w-[660px]">
           {/* Inner Frame with Gradient Border */}
           <div
+            className="w-full max-w-[453px] mx-auto lg:mx-0"
             style={{
-              width: "453px",
-              height: "40px",
+              height: "auto",
+              minHeight: "40px",
               borderRadius: "14px",
               border: "1px solid transparent",
               background: "rgba(6, 52, 52, 0.58)",
-              padding: "4px 11px",
+              padding: "8px 16px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               gap: "10px",
-              position: "absolute",
-              left: "0px",
-              top: "0px",
+              position: "relative",
             }}
           >
             {/* Gradient Border */}
@@ -60,21 +86,14 @@ export default function About() {
               }}
             />
             <span
+              className="text-xs sm:text-sm md:text-[15px] text-center"
               style={{
-                width: "500px",
-                height: "32px",
                 fontFamily: "Inter, sans-serif",
                 fontWeight: 500,
-                fontSize: "15px",
-                lineHeight: "32px",
+                lineHeight: "1.8",
                 letterSpacing: "0px",
-                textAlign: "center",
                 color: "rgba(183, 183, 183, 1)",
                 opacity: 1,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                whiteSpace: "nowrap",
               }}
             >
               Building digital solutions that empower businesses to grow.
@@ -83,15 +102,12 @@ export default function About() {
           
           {/* What is CODIFY AGENCY ? Text */}
           <h2
+            className="mt-6 sm:mt-8 md:mt-10 text-2xl sm:text-3xl md:text-4xl lg:text-[44.9px] text-center lg:text-left"
             style={{
-              position: "absolute",
-              left: "0px",
-              top: "55px",
               fontFamily: "Inter, sans-serif",
               fontWeight: 700,
-              fontSize: "44.9px",
-              lineHeight: "84px",
-              letterSpacing: "-1.8px",
+              lineHeight: "1.4",
+              letterSpacing: "-0.02em",
               background: "linear-gradient(102.61deg, #EDFEFF 12.74%, #D8F5F6 64.75%, #0D7769 82.45%), linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -103,17 +119,13 @@ export default function About() {
           
           {/* Description Text */}
           <p
+            className="mt-6 sm:mt-8 md:mt-10 text-sm sm:text-base md:text-lg lg:text-xl text-center lg:text-left"
             style={{
-              position: "absolute",
-              left: "0px",
-              top: "154px",
               fontFamily: "Inter, sans-serif",
               fontWeight: 400,
-              fontSize: "20px",
-              lineHeight: "32px",
+              lineHeight: "1.6",
               letterSpacing: "0px",
               color: "rgba(255, 255, 255, 1)",
-              maxWidth: "630px",
             }}
           >
             We are a team of passionate developers, designers, and problem-solvers dedicated to transforming ideas into scalable software. Our mission is to help startups and enterprises build reliable digital products that drive innovation, efficiency, and growth. With expertise in modern technologies and a client-first approach, we deliver solutions that make an impact.
@@ -121,12 +133,15 @@ export default function About() {
         </div>
         
         {/* Right Frame - Logo Card */}
-        <Image
-          src="/Frame 1618874014 (1).svg"
-          alt="Codify Agency"
-          width={395}
-          height={352}
-        />
+        <div className="w-full lg:w-auto flex justify-center lg:justify-end mt-8 lg:mt-0">
+          <Image
+            src="/Frame 1618874014 (1).svg"
+            alt="Codify Agency"
+            width={395}
+            height={352}
+            className="w-64 sm:w-80 md:w-96 lg:w-[395px] h-auto"
+          />
+        </div>
       </div>
       
     </section>

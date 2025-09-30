@@ -1,15 +1,16 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-8 pt-32 pb-16">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 pt-24 sm:pt-28 md:pt-32 pb-2 sm:pb-3 md:pb-4">
       {/* Badge Component */}
       <div
-        className="inline-flex items-center mb-12"
+        className="inline-flex items-center mb-8 sm:mb-10 md:mb-12 px-3 sm:px-4"
         style={{
-          width: "343px",
+          maxWidth: "343px",
+          width: "auto",
           height: "36px",
           borderRadius: "100px",
-          gap: "12px",
-          padding: "8px 10px",
+          gap: "8px",
+          padding: "8px 12px",
           background: "#28837173",
           border: "1px solid transparent",
           backgroundClip: "padding-box",
@@ -33,12 +34,12 @@ export default function Hero() {
         />
         {/* Sparkle Icon */}
         <svg
-          width="20"
-          height="20"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ flexShrink: 0 }}
+          className="flex-shrink-0 sm:w-5 sm:h-5"
         >
           <path
             d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
@@ -50,6 +51,7 @@ export default function Hero() {
           />
         </svg>
         <span
+          className="text-xs sm:text-sm md:text-base"
           style={{
             background: "#CAD5FF",
             WebkitBackgroundClip: "text",
@@ -57,7 +59,6 @@ export default function Hero() {
             backgroundClip: "text",
             fontFamily: "Manrope, sans-serif",
             fontWeight: 500,
-            fontSize: "16px",
             lineHeight: "100%",
             letterSpacing: "0%",
             textAlign: "center",
@@ -70,13 +71,12 @@ export default function Hero() {
 
       {/* Big Heading */}
       <h1
-        className="mb-8"
+        className="mb-6 sm:mb-8 px-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
         style={{
           fontFamily: "Inter, sans-serif",
           fontWeight: 700,
-          fontSize: "71.9px",
-          lineHeight: "84px",
-          letterSpacing: "-1.8px",
+          lineHeight: "1.2",
+          letterSpacing: "-0.02em",
           textAlign: "center",
           maxWidth: "1000px",
           background: "linear-gradient(102.61deg, #EDFEFF 12.74%, #D8F5F6 18.57%, #0D7769 82.45%), linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
@@ -92,12 +92,11 @@ export default function Hero() {
 
       {/* Paragraph */}
       <p
-        className="mb-12"
+        className="mb-8 sm:mb-10 md:mb-12 px-4 text-sm sm:text-base md:text-lg lg:text-xl"
         style={{
           fontFamily: "Inter, sans-serif",
           fontWeight: 500,
-          fontSize: "19.8px",
-          lineHeight: "32px",
+          lineHeight: "1.6",
           letterSpacing: "0px",
           textAlign: "center",
           color: "#B7B7B7",
@@ -105,17 +104,16 @@ export default function Hero() {
         }}
       >
         From websites to software, We craft scalable solutions that
-        <br />
+        <span className="hidden sm:inline"><br /></span>
+        <span className="sm:hidden"> </span>
         help businesses grow, adapt, and lead in the digital era
       </p>
 
       {/* Get Started Button */}
-      <div className="relative mb-20">
+      <div className="relative mb-12 sm:mb-16 md:mb-20">
         <button
-          className="transition-all hover:bg-white/5"
+          className="transition-all hover:bg-white/5 w-48 sm:w-52 md:w-[215px] h-9 sm:h-10 md:h-[38px]"
           style={{
-            width: "215px",
-            height: "38px",
             borderRadius: "10566.32px",
             border: "none",
             background: "transparent",
@@ -123,10 +121,10 @@ export default function Hero() {
           }}
         >
           <span
+            className="text-xs sm:text-sm"
             style={{
               fontFamily: "Inter, sans-serif",
               fontWeight: 400,
-              fontSize: "14.69px",
               lineHeight: "25.36px",
               letterSpacing: "0px",
               textTransform: "uppercase",
@@ -138,12 +136,12 @@ export default function Hero() {
         </button>
         {/* Bottom gradient line */}
         <div
+          className="w-20 sm:w-24 md:w-[107.69px]"
           style={{
             position: "absolute",
             bottom: "-1px",
             left: "50%",
             transform: "translateX(-50%)",
-            width: "107.69px",
             height: "1.06px",
             background: "linear-gradient(90deg, rgba(51, 245, 227, 0) 0%, #33F5E3 50%, rgba(51, 245, 227, 0) 100%)",
           }}
@@ -151,12 +149,12 @@ export default function Hero() {
       </div>
 
       {/* Learn More Text */}
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-3 sm:gap-4">
         <span
+          className="text-xs sm:text-sm"
           style={{
             fontFamily: "Inter, sans-serif",
             fontWeight: 400,
-            fontSize: "14.69px",
             lineHeight: "25.36px",
             letterSpacing: "0px",
             color: "#A1A1AA",
@@ -166,12 +164,12 @@ export default function Hero() {
         </span>
         {/* Down Arrow */}
         <svg
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="animate-bounce"
+          className="animate-bounce sm:w-6 sm:h-6"
         >
           <path
             d="M12 5V19M12 19L19 12M12 19L5 12"
