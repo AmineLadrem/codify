@@ -14,6 +14,17 @@ export default function Hero() {
         />
       </div>
 
+      {/* Star Background - Top Right */}
+      <div className="absolute top-0 right-0 pointer-events-none hidden sm:block">
+        <Image 
+          src="/Star 22.svg" 
+          alt="" 
+          width={916} 
+          height={773}
+          className="opacity-70"
+        />
+      </div>
+
       {/* Grid Overlay */}
       <div
         className="absolute top-0 bottom-0 pointer-events-none select-none hidden md:block"
