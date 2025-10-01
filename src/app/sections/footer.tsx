@@ -360,7 +360,7 @@ export default function Footer() {
             © 2025 Codify Agency. All Rights Reserved.
           </div>
 
-          {/* Cookie notice at bottom right */}
+          {/* Cookie notice at bottom rightt */}
           <div
             className="relative md:absolute w-full md:w-[300px] md:bottom-0 md:right-0 mt-4 md:mt-0 text-center md:text-right"
             style={{
