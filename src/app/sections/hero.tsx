@@ -15,13 +15,13 @@ export default function Hero() {
       </div>
 
       {/* Star Background - Top Right */}
-      <div className="absolute top-0 right-0 pointer-events-none hidden sm:block">
+      <div className="absolute top-0 right-0 pointer-events-none block">
         <Image 
           src="/Star 22.svg" 
           alt="" 
           width={916} 
           height={773}
-          className="opacity-70"
+          className="opacity-70 w-[400px] sm:w-[600px] md:w-[916px] h-auto"
         />
       </div>
 
