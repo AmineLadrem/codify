@@ -62,6 +62,11 @@ export default function Team() {
       image: "/image 12.svg",
     },
     {
+      name: "Abd-Ul-Haq Amine Ladrem",
+      role: "Software Engineer",
+      image: "/awpr.png",
+    },
+    {
       name: "CHETTOUF Islem",
       role: "CEO & Front-end Developer",
       image: "/IMG_0810_bg_removed.png.png",

@@ -9,6 +9,61 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate fields
+    if (!name || !email || !message) {
+      setErrorMessage("Please fill in all required fields");
+      setSubmitStatus("error");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          whatsapp,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        // Reset form
+        setName("");
+        setEmail("");
+        setWhatsapp("");
+        setMessage("");
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      } else {
+        setSubmitStatus("error");
+        setErrorMessage(data.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+      setErrorMessage("An error occurred. Please try again later.");
+      console.error("Form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section
       id="contact"
@@ -469,11 +524,59 @@ export default function Contact() {
                 }}
               />
 
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <div style={{
+                  padding: "12px 16px",
+                  borderRadius: "8px",
+                  background: "rgba(34, 213, 189, 0.1)",
+                  border: "1px solid rgba(34, 213, 189, 0.3)",
+                  marginTop: "12px",
+                }}>
+                  <p style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "14px",
+                    color: "#38DDBC",
+                    margin: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}>
+                    <span>✓</span>
+                    <span>Message sent successfully! We'll get back to you soon.</span>
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div style={{
+                  padding: "12px 16px",
+                  borderRadius: "8px",
+                  background: "rgba(239, 68, 68, 0.1)",
+                  border: "1px solid rgba(239, 68, 68, 0.3)",
+                  marginTop: "12px",
+                }}>
+                  <p style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "14px",
+                    color: "#EF4444",
+                    margin: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}>
+                    <span>✕</span>
+                    <span>{errorMessage}</span>
+                  </p>
+                </div>
+              )}
+
               {/* Submit Button */}
               <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "20px" }}>
                 <div style={{ position: "relative" }}>
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="transition-all hover:bg-white/5"
                     style={{
                       width: "110px",
@@ -482,36 +585,37 @@ export default function Contact() {
                       border: "none",
                       background: "transparent",
                       boxShadow: "0px 0px 0px 0px rgba(255, 255, 255, 1), 0px 0px 0px 1.06px rgba(255, 255, 255, 0.35), 0px 0px 0px 0px rgba(0, 0, 0, 0)",
-                      cursor: "pointer",
+                      cursor: isSubmitting ? "not-allowed" : "pointer",
+                      opacity: isSubmitting ? 0.6 : 1,
                       transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                     }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      // Handle form submission here
-                      console.log({ name, whatsapp, email, message });
-                    }}
+                    onClick={handleSubmit}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                      e.currentTarget.style.background = "rgba(51, 245, 227, 0.05)";
-                      const span = e.currentTarget.querySelector('span') as HTMLElement;
-                      if (span) {
-                        span.style.color = "#33F5E3";
-                      }
-                      const line = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (line) {
-                        line.style.opacity = "0";
+                      if (!isSubmitting) {
+                        e.currentTarget.style.transform = "translateY(-2px)";
+                        e.currentTarget.style.background = "rgba(51, 245, 227, 0.05)";
+                        const span = e.currentTarget.querySelector('span') as HTMLElement;
+                        if (span) {
+                          span.style.color = "#33F5E3";
+                        }
+                        const line = e.currentTarget.nextElementSibling as HTMLElement;
+                        if (line) {
+                          line.style.opacity = "0";
+                        }
                       }
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.background = "transparent";
-                      const span = e.currentTarget.querySelector('span') as HTMLElement;
-                      if (span) {
-                        span.style.color = "#A1A1AA";
-                      }
-                      const line = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (line) {
-                        line.style.opacity = "0.8";
+                      if (!isSubmitting) {
+                        e.currentTarget.style.transform = "translateY(0)";
+                        e.currentTarget.style.background = "transparent";
+                        const span = e.currentTarget.querySelector('span') as HTMLElement;
+                        if (span) {
+                          span.style.color = "#A1A1AA";
+                        }
+                        const line = e.currentTarget.nextElementSibling as HTMLElement;
+                        if (line) {
+                          line.style.opacity = "0.8";
+                        }
                       }
                     }}
                   >
@@ -528,7 +632,7 @@ export default function Contact() {
                         display: "inline-block",
                       }}
                     >
-                      Submit
+                      {isSubmitting ? "Sending..." : "Submit"}
                     </span>
                   </button>
                   {/* Bottom gradient line */}
