@@ -4,13 +4,23 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20"
+      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20 relative"
       style={{
         minHeight: "857px",
       }}
     >
+      {/* Ellipse Background - Middle */}
+      <div className="absolute pointer-events-none hidden md:block" style={{ left: '35%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, width: '481px', height: '522px' }}>
+        <Image 
+          src="/Ellipse 2464 (2).svg" 
+          alt="" 
+          width={481} 
+          height={522}
+          style={{ opacity: 0.5, filter: 'brightness(2.5)' }}
+        />
+      </div>
       {/* Process Label with Vectors */}
-      <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12">
+      <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12 relative" style={{ zIndex: 10 }}>
         {/* Left Vector */}
         <Image
           src="/Vector 13.svg"
@@ -51,7 +61,7 @@ export default function Process() {
 
       {/* Frame */}
       <div
-        className="w-full max-w-[660px]"
+        className="w-full max-w-[660px] relative"
         style={{
           minHeight: "148px",
           opacity: 1,
@@ -60,6 +70,7 @@ export default function Process() {
           flexDirection: "column",
           alignItems: "center",
           paddingTop: "0px",
+          zIndex: 10,
         }}
       >
         {/* How We Work Text */}
@@ -100,7 +111,7 @@ export default function Process() {
       </div>
 
       {/* Mobile View - Vertical Timeline */}
-      <div className="block lg:hidden w-full max-w-[600px] mx-auto mt-12 px-4">
+      <div className="block lg:hidden w-full max-w-[600px] mx-auto mt-12 px-4 relative" style={{ zIndex: 10 }}>
         {[
           { number: "01.svg", icon: "Send 1.svg", title: "Discovery & Strategy", desc: "We start by understanding your goals and vision.", color: "rgba(66, 255, 217, 1)" },
           { number: "02.svg", icon: "Pen.svg", title: "Design", desc: "Creating beautiful and intuitive user experiences.", color: "rgba(66, 255, 217, 1)" },
@@ -150,7 +161,7 @@ export default function Process() {
       </div>
 
       {/* Desktop View - Visual timeline composed of 23 SVGs (numbers, bases, icons, connectors) */}
-      <div className="relative w-full max-w-[1300px] h-[500px] mt-16 hidden lg:block mx-auto">
+      <div className="relative w-full max-w-[1300px] h-[500px] mt-16 hidden lg:block mx-auto" style={{ zIndex: 10 }}>
         {/* Modern animated gradient lines with flowing particles */}
         <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
           <defs>

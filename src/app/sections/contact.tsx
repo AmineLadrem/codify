@@ -12,11 +12,32 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20"
+      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20 relative"
       style={{
-        minHeight: "800px",
+        minHeight: "400px",
       }}
     >
+      {/* Ellipse Background - Left Side */}
+      <div className="absolute left-0 pointer-events-none overflow-hidden hidden lg:block" style={{ top: '500px', width: '280px', height: '335px' }}>
+        <Image 
+          src="/Ellipse 2463 (4).svg" 
+          alt="" 
+          width={280} 
+          height={335}
+          className="opacity-60"
+        />
+      </div>
+
+      {/* Ellipse Background - Top Right */}
+      <div className="absolute right-0 pointer-events-none overflow-hidden hidden lg:block" style={{ top: '50px', width: '280px', height: '335px' }}>
+        <Image 
+          src="/Ellipse 2463 (4).svg" 
+          alt="" 
+          width={280} 
+          height={335}
+          className="opacity-60"
+        />
+      </div>
       {/* Contact Label with Vectors */}
       <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12">
         {/* Left Vector */}
@@ -130,17 +151,11 @@ export default function Contact() {
         </div>
 
         {/* Heading Frame */}
-        <div style={{
-          width: 500,
-          height: 120,
-          opacity: 1,
-          marginBottom: "32px",
-        }}>
-          <h2 style={{
+        <div className="w-full max-w-[500px] mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44.9px]" style={{
             fontFamily: "Inter, sans-serif",
             fontWeight: 700,
-            fontSize: "44.9px",
-            lineHeight: "60px",
+            lineHeight: "1.3",
             letterSpacing: "-1.8px",
             verticalAlign: "middle",
             background: "linear-gradient(102.61deg, #EDFEFF 12.74%, #D8F5F6 64.75%, #0D7769 82.45%), linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
@@ -227,15 +242,13 @@ export default function Contact() {
 
           {/* Email */}
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.codifyagency@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:contact.codifyagency@gmail.com"
             style={{
               width: "48px",
               height: "48px",
               borderRadius: "12px",
-              background: "linear-gradient(135deg, rgba(234, 67, 53, 0.1) 0%, rgba(251, 188, 5, 0.1) 100%)",
-              border: "1px solid rgba(234, 67, 53, 0.2)",
+              background: "rgba(34, 213, 189, 0.15)",
+              border: "1px solid rgba(34, 213, 189, 0.3)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -243,19 +256,19 @@ export default function Contact() {
               cursor: "pointer",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "linear-gradient(135deg, rgba(234, 67, 53, 0.2) 0%, rgba(251, 188, 5, 0.2) 100%)";
-              e.currentTarget.style.borderColor = "rgba(234, 67, 53, 0.5)";
+              e.currentTarget.style.background = "rgba(34, 213, 189, 0.25)";
+              e.currentTarget.style.borderColor = "rgba(34, 213, 189, 0.6)";
               e.currentTarget.style.transform = "translateY(-3px)";
-              e.currentTarget.style.boxShadow = "0px 8px 20px rgba(234, 67, 53, 0.3)";
+              e.currentTarget.style.boxShadow = "0px 8px 20px rgba(34, 213, 189, 0.4)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "linear-gradient(135deg, rgba(234, 67, 53, 0.1) 0%, rgba(251, 188, 5, 0.1) 100%)";
-              e.currentTarget.style.borderColor = "rgba(234, 67, 53, 0.2)";
+              e.currentTarget.style.background = "rgba(34, 213, 189, 0.15)";
+              e.currentTarget.style.borderColor = "rgba(34, 213, 189, 0.3)";
               e.currentTarget.style.transform = "translateY(0)";
               e.currentTarget.style.boxShadow = "none";
             }}
           >
-            <Image src="/gmail2.svg" alt="Email" width={24} height={24} />
+            <Image src="/emaill.svg" alt="Email" width={24} height={24} />
           </a>
         </div>
       </div>
@@ -270,15 +283,15 @@ export default function Contact() {
         {/* Right Side - Contact Form */}
         <div className="w-full lg:w-1/2">
           <div
+            className="w-full max-w-[519px] mx-auto lg:mx-0"
             style={{
-              width: "519px",
               height: "auto",
               borderRadius: "13.6px",
               background: "rgba(2, 35, 37, 0.4)",
               border: "1px solid transparent",
               position: "relative",
               opacity: 1,
-              marginTop: "-337px",
+              marginTop: "0",
             }}
           >
             {/* Gradient Border */}
@@ -298,25 +311,21 @@ export default function Contact() {
             />
             
             {/* Form Content */}
-            <div style={{ 
-              padding: "32px",
+            <div className="p-6 sm:p-8" style={{ 
               display: "flex",
               flexDirection: "column",
               gap: "13.6px",
             }}>
               {/* Text Frame 1 - Heading */}
-              <div style={{
-                width: "447px",
-                height: "33px",
+              <div className="w-full" style={{
                 opacity: 1,
                 display: "flex",
                 alignItems: "center",
               }}>
-                <h3 style={{
+                <h3 className="text-xl sm:text-2xl lg:text-[25.49px]" style={{
                   fontFamily: "Gabarito, sans-serif",
                   fontWeight: 700,
-                  fontSize: "25.49px",
-                  lineHeight: "32.29px",
+                  lineHeight: "1.3",
                   letterSpacing: "0%",
                   color: "rgba(255, 255, 255, 1)",
                   margin: 0,
@@ -326,20 +335,17 @@ export default function Contact() {
               </div>
 
               {/* Text Frame 2 - Description */}
-              <div style={{
-                width: "447px",
-                height: "48px",
+              <div className="w-full" style={{
                 opacity: 1,
                 display: "flex",
                 alignItems: "center",
                 marginTop: "2px",
                 marginBottom: "24px",
               }}>
-                <p style={{
+                <p className="text-sm sm:text-base" style={{
                   fontFamily: "Inter, sans-serif",
                   fontWeight: 400,
-                  fontSize: "15.29px",
-                  lineHeight: "23.79px",
+                  lineHeight: "1.5",
                   letterSpacing: "0%",
                   color: "rgba(176, 176, 176, 1)",
                   margin: 0,
@@ -355,9 +361,9 @@ export default function Contact() {
                 onChange={(e) => setName(e.target.value)}
                 onFocus={() => setFocusedField("name")}
                 onBlur={() => setFocusedField(null)}
-                placeholder="Enter your name"
+                placeholder="Name"
+                className="w-full"
                 style={{
-                  width: "447px",
                   height: "41.392765045166016px",
                   borderRadius: "6.8px",
                   border: `0.85px solid ${focusedField === "name" ? "rgba(34, 213, 189, 1)" : "rgba(213, 215, 218, 1)"}`,
@@ -384,9 +390,9 @@ export default function Contact() {
                 onChange={(e) => setWhatsapp(e.target.value)}
                 onFocus={() => setFocusedField("whatsapp")}
                 onBlur={() => setFocusedField(null)}
-                placeholder="Enter your whatsapp"
+                placeholder="Phone Number"
+                className="w-full"
                 style={{
-                  width: "447px",
                   height: "41.392765045166016px",
                   borderRadius: "6.8px",
                   border: `0.85px solid ${focusedField === "whatsapp" ? "rgba(34, 213, 189, 1)" : "rgba(213, 215, 218, 1)"}`,
@@ -413,9 +419,9 @@ export default function Contact() {
                 onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setFocusedField("email")}
                 onBlur={() => setFocusedField(null)}
-                placeholder="Enter your email"
+                placeholder="Email"
+                className="w-full"
                 style={{
-                  width: "447px",
                   height: "41.392765045166016px",
                   borderRadius: "6.8px",
                   border: `0.85px solid ${focusedField === "email" ? "rgba(34, 213, 189, 1)" : "rgba(213, 215, 218, 1)"}`,
@@ -441,9 +447,9 @@ export default function Contact() {
                 onChange={(e) => setMessage(e.target.value)}
                 onFocus={() => setFocusedField("message")}
                 onBlur={() => setFocusedField(null)}
-                placeholder="Enter your message"
+                placeholder="Message"
+                className="w-full"
                 style={{
-                  width: "447px",
                   height: "80px",
                   borderRadius: "6.8px",
                   border: `0.85px solid ${focusedField === "message" ? "rgba(34, 213, 189, 1)" : "rgba(213, 215, 218, 1)"}`,

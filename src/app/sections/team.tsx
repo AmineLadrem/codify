@@ -7,7 +7,6 @@ export default function Team() {
   const [isGrabbing, setIsGrabbing] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
     if (!scrollContainerRef.current) return;
@@ -36,7 +35,7 @@ export default function Team() {
   const handleScroll = () => {
     if (!scrollContainerRef.current || isGrabbing) return;
     const container = scrollContainerRef.current;
-    const itemWidth = 280 + 24; // card width + gap
+    const itemWidth = 280 + 32; // card width + gap
     const arrayWidth = itemWidth * 8; // 8 cards
     
     if (container.scrollLeft >= arrayWidth * 2 - 100) {
@@ -50,39 +49,17 @@ export default function Team() {
     const container = scrollContainerRef.current;
     if (container) {
       // Set initial scroll position to middle copy
-      const itemWidth = 280 + 24;
+      const itemWidth = 280 + 32;
       const arrayWidth = itemWidth * 8;
       container.scrollLeft = arrayWidth;
     }
-
-    // Auto-scroll animation
-    let animationId: number;
-    const autoScroll = () => {
-      if (container && !isGrabbing && !isPaused) {
-        container.scrollLeft += 0.8; // Smooth scroll speed (pixels per frame)
-      }
-      animationId = requestAnimationFrame(autoScroll);
-    };
-    
-    animationId = requestAnimationFrame(autoScroll);
-
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-  }, [isGrabbing, isPaused]);
+  }, []);
 
   const teamMembers = [
     {
-      name: "GAECEM Abdenour",
-      role: "Projects Manager",
-      image: "/team-gaecem.jpg",
-    },
-    {
-      name: "Abd-Ul-Haq Amine Ladrem",
-      role: "Back-end Developer",
-      image: "/awpr.png",
+      name: "ARAB Rimel",
+      role: "UI/UX Designer",
+      image: "/image 12.svg",
     },
     {
       name: "CHETTOUF Islem",
@@ -90,19 +67,24 @@ export default function Team() {
       image: "/IMG_0810_bg_removed.png.png",
     },
     {
+      name: "Abd-Ul-Haq Amine Ladrem",
+      role: "Back-end Developer",
+      image: "/awpr.png",
+    },
+    {
+      name: "DALIL Faycel",
+      role: "Back-end Developer",
+      image: "/team-4.jpg",
+    },
+    {
       name: "YOUNSI Mohammed",
       role: "Founder & Projects Manager",
       image: "/team-younsi.jpg",
     },
     {
-      name: "ARAB Rimel",
-      role: "UI/UX Designer",
-      image: "/image 12.svg",
-    },
-    {
-      name: "DALIL",
-      role: "Back-end Developer",
-      image: "/team-4.jpg",
+      name: "GAECEM Abdenour",
+      role: "Projects Manager",
+      image: "/team-gaecem.jpg",
     },
     {
       name: "LALOUANI Yanis",
@@ -125,7 +107,7 @@ export default function Team() {
       }}
     >
       {/* Ellipse Background - Top Right */}
-      <div className="absolute top-0 right-0 pointer-events-none overflow-hidden" style={{ width: '183px', height: '121px' }}>
+      <div className="absolute top-0 right-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: '183px', height: '121px' }}>
         <Image 
           src="/Ellipse 2463 (3).svg" 
           alt="" 
@@ -136,7 +118,7 @@ export default function Team() {
       </div>
 
       {/* Ellipse Background - Left Top */}
-      <div className="absolute left-0 pointer-events-none overflow-hidden" style={{ top: '80px', width: '340px', height: '519px' }}>
+      <div className="absolute left-0 pointer-events-none overflow-hidden hidden sm:block" style={{ top: '80px', width: '340px', height: '519px' }}>
         <Image 
           src="/Ellipse 2464 (1).svg" 
           alt="" 
@@ -221,12 +203,74 @@ export default function Team() {
         </p>
       </div>
 
-      {/* Team Circular Array - Horizontal Scroll */}
-      <div className="w-full max-w-[1800px] mx-auto relative mt-8 overflow-visible">
+      {/* Team Cards - Horizontal Scroll with Infinite Loop */}
+      <div className="w-full max-w-[1240px] mx-auto relative mt-8 overflow-visible">
+        {/* Left Arrow */}
+        <button
+          onClick={() => {
+            if (scrollContainerRef.current) {
+              scrollContainerRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+            }
+          }}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center transition-all duration-300 hover:scale-110"
+          style={{
+            cursor: "pointer",
+            left: "-70px",
+            background: "transparent",
+            border: "none",
+          }}
+        >
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style={{
+              filter: "drop-shadow(0px 0px 8px rgba(55, 255, 213, 0.6))",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.filter = "drop-shadow(0px 0px 15px rgba(55, 255, 213, 0.9))";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.filter = "drop-shadow(0px 0px 8px rgba(55, 255, 213, 0.6))";
+            }}
+          >
+            <path d="M15 18L9 12L15 6" stroke="#37FFD5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => {
+            if (scrollContainerRef.current) {
+              scrollContainerRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+            }
+          }}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center transition-all duration-300 hover:scale-110"
+          style={{
+            cursor: "pointer",
+            right: "-70px",
+            background: "transparent",
+            border: "none",
+          }}
+        >
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style={{
+              filter: "drop-shadow(0px 0px 8px rgba(55, 255, 213, 0.6))",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.filter = "drop-shadow(0px 0px 15px rgba(55, 255, 213, 0.9))";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.filter = "drop-shadow(0px 0px 8px rgba(55, 255, 213, 0.6))";
+            }}
+          >
+            <path d="M9 18L15 12L9 6" stroke="#37FFD5" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
         {/* Horizontal scrollable container with drag-to-scroll */}
         <div 
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto pb-4 px-4 pt-4 select-none"
+          className="flex gap-8 overflow-x-auto pb-4 px-4 pt-4 select-none"
           style={{ 
             scrollbarWidth: 'none',
             cursor: isGrabbing ? 'grabbing' : 'grab',
@@ -234,11 +278,7 @@ export default function Team() {
             scrollBehavior: 'auto',
           }}
           onMouseDown={handleMouseDown}
-          onMouseLeave={() => {
-            handleMouseLeave();
-            setIsPaused(false);
-          }}
-          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
           onScroll={handleScroll}
@@ -248,7 +288,7 @@ export default function Team() {
         {[...teamMembers, ...teamMembers, ...teamMembers].map((member, index) => (
           <div
             key={index}
-            className="group relative rounded-2xl p-[1px] transition-all duration-500 hover:-translate-y-2 flex-shrink-0"
+            className="group relative rounded-2xl p-[1px] transition-all duration-500 hover:-translate-y-4 flex-shrink-0"
             style={{
               background: "linear-gradient(180deg, rgba(55,255,213,0.35) 0%, rgba(55,255,213,0.05) 100%)",
               zIndex: 10,
@@ -365,6 +405,13 @@ export default function Team() {
         ))}
         </div>
       </div>
+
+      {/* Hide scrollbar */}
+      <style jsx>{`
+        div::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }

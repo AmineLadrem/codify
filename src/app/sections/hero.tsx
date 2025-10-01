@@ -2,21 +2,21 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 pt-24 sm:pt-28 md:pt-32 pb-2 sm:pb-3 md:pb-4 relative">
+    <section id="hero" className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 pt-24 sm:pt-28 md:pt-32 pb-2 sm:pb-3 md:pb-4 relative">
       {/* Ellipse Background */}
-      <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none" style={{ top: '60%', transform: 'translate(0%, -50%)' }}>
+      <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none hidden sm:block" style={{ top: '60%', transform: 'translate(0%, -50%)' }}>
         <Image 
           src="/Ellipse 2458 (1).svg" 
           alt="" 
           width={1292} 
           height={773}
-          className="opacity-80"
+          className="opacity-80 w-full max-w-[1292px] h-auto"
         />
       </div>
 
       {/* Grid Overlay */}
       <div
-        className="absolute top-0 bottom-0 pointer-events-none select-none"
+        className="absolute top-0 bottom-0 pointer-events-none select-none hidden md:block"
         style={{
           left: '18%',
           right: '18%',

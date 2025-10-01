@@ -10,7 +10,7 @@ export default function About() {
       }}
     >
       {/* Ellipse Background - Top Left */}
-      <div className="absolute top-0 left-0 pointer-events-none overflow-hidden" style={{ width: '201px', height: '335px' }}>
+      <div className="absolute top-0 left-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: '201px', height: '335px' }}>
         <Image 
           src="/Ellipse 2463 (1).svg" 
           alt="" 
@@ -21,7 +21,7 @@ export default function About() {
       </div>
 
       {/* Ellipse Background - Bottom Right */}
-      <div className="absolute bottom-0 right-0 pointer-events-none overflow-hidden" style={{ width: '188px', height: '230px' }}>
+      <div className="absolute bottom-0 right-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: '188px', height: '230px' }}>
         <Image 
           src="/Ellipse 2463 (2).svg" 
           alt="" 
