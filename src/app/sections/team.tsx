@@ -57,17 +57,17 @@ export default function Team() {
 
   const teamMembers = [
     {
-      name: "ARAB Rimel",
+      name: "Rimel ARAB",
       role: "UI/UX Designer",
       image: "/image 12.svg",
     },
     {
-      name: "Abd-Ul-Haq Amine Ladrem",
+      name: "Abd-Ul-Haq Amine LADREM",
       role: "Software Engineer",
       image: "/awpr.png",
     },
     {
-      name: "CHETTOUF Islem",
+      name: "Islem CHETTOUF",
       role: "CEO & Front-end Developer",
       image: "/IMG_0810_bg_removed.png.png",
     },
@@ -77,22 +77,22 @@ export default function Team() {
       image: "/team-4.jpg",
     },
     {
-      name: "YOUNSI Mohammed",
+      name: "Mohammed YOUNSI",
       role: "Founder & Projects Manager",
       image: "/team-younsi.jpg",
     },
     {
-      name: "GAECEM Abdenour",
+      name: "Abdenour GAECEM",
       role: "Projects Manager",
       image: "/team-gaecem.jpg",
     },
     {
-      name: "LALOUANI Yanis",
+      name: "Yanis LALOUANI",
       role: "Marketing",
       image: "/team-lalouani.jpg",
     },
     {
-      name: "OUAHIB Elyes",
+      name: "Elyes OUAHIB",
       role: "Video Editor",
       image: "/team-ouahib.jpg",
     },
