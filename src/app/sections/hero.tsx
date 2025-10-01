@@ -1,6 +1,39 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 pt-24 sm:pt-28 md:pt-32 pb-2 sm:pb-3 md:pb-4">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 pt-24 sm:pt-28 md:pt-32 pb-2 sm:pb-3 md:pb-4 relative">
+      {/* Ellipse Background */}
+      <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none" style={{ top: '60%', transform: 'translate(0%, -50%)' }}>
+        <Image 
+          src="/Ellipse 2458 (1).svg" 
+          alt="" 
+          width={1292} 
+          height={773}
+          className="opacity-80"
+        />
+      </div>
+
+      {/* Grid Overlay */}
+      <div
+        className="absolute top-0 bottom-0 pointer-events-none select-none"
+        style={{
+          left: '18%',
+          right: '18%',
+          backgroundImage:
+            'repeating-linear-gradient(0deg, rgba(14, 77, 71, 0.6) 0px, rgba(14, 77, 71, 0.6) 2px, transparent 2px, transparent 48px), repeating-linear-gradient(90deg, rgba(14, 77, 71, 0.6) 0px, rgba(14, 77, 71, 0.6) 2px, transparent 2px, transparent 48px)',
+          opacity: 0.6,
+          WebkitMaskImage:
+            'linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.5) 32%, rgba(0,0,0,0.5) 68%, rgba(0,0,0,0.01) 92%, rgba(0,0,0,0) 100%), linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.5) 32%, rgba(0,0,0,0.5) 68%, rgba(0,0,0,0.01) 92%, rgba(0,0,0,0) 100%)',
+          WebkitMaskComposite: 'source-in',
+          maskImage:
+            'linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.5) 32%, rgba(0,0,0,0.5) 68%, rgba(0,0,0,0.01) 92%, rgba(0,0,0,0) 100%), linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.5) 32%, rgba(0,0,0,0.5) 68%, rgba(0,0,0,0.01) 92%, rgba(0,0,0,0) 100%)',
+          maskComposite: 'intersect',
+        }}
+      />
+      
+      {/* Content - Above Grid */}
+      <div className="relative z-10 flex flex-col items-center w-full">
       {/* Badge Component */}
       <div
         className="inline-flex items-center mb-8 sm:mb-10 md:mb-12 px-3 sm:px-4"
@@ -179,6 +212,7 @@ export default function Hero() {
             strokeLinejoin="round"
           />
         </svg>
+      </div>
       </div>
     </section>
   );

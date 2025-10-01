@@ -1,16 +1,98 @@
+"use client";
 import Image from "next/image";
+import { useRef, useState, MouseEvent, useEffect } from "react";
 
 export default function Team() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isGrabbing, setIsGrabbing] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+    if (!scrollContainerRef.current) return;
+    setIsGrabbing(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsGrabbing(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsGrabbing(false);
+  };
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!isGrabbing || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Infinite circular scroll effect
+  const handleScroll = () => {
+    if (!scrollContainerRef.current || isGrabbing) return;
+    const container = scrollContainerRef.current;
+    const itemWidth = 280 + 24; // card width + gap
+    const arrayWidth = itemWidth * 8; // 8 cards
+    
+    if (container.scrollLeft >= arrayWidth * 2 - 100) {
+      container.scrollLeft = arrayWidth;
+    } else if (container.scrollLeft <= 100) {
+      container.scrollLeft = arrayWidth;
+    }
+  };
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      // Set initial scroll position to middle copy
+      const itemWidth = 280 + 24;
+      const arrayWidth = itemWidth * 8;
+      container.scrollLeft = arrayWidth;
+    }
+
+    // Auto-scroll animation
+    let animationId: number;
+    const autoScroll = () => {
+      if (container && !isGrabbing && !isPaused) {
+        container.scrollLeft += 0.8; // Smooth scroll speed (pixels per frame)
+      }
+      animationId = requestAnimationFrame(autoScroll);
+    };
+    
+    animationId = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, [isGrabbing, isPaused]);
+
   const teamMembers = [
+    {
+      name: "GAECEM Abdenour",
+      role: "Projects Manager",
+      image: "/team-gaecem.jpg",
+    },
+    {
+      name: "Abd-Ul-Haq Amine Ladrem",
+      role: "Back-end Developer",
+      image: "/awpr.png",
+    },
     {
       name: "CHETTOUF Islem",
       role: "CEO & Front-end Developer",
       image: "/IMG_0810_bg_removed.png.png",
     },
     {
-      name: "Abd-Ul-Haq Amine Ladrem",
-      role: "Back-end Developer",
-      image: "/awpr.png",
+      name: "YOUNSI Mohammed",
+      role: "Founder & Projects Manager",
+      image: "/team-younsi.jpg",
     },
     {
       name: "ARAB Rimel",
@@ -19,19 +101,51 @@ export default function Team() {
     },
     {
       name: "DALIL",
-      role: "back-end Developer",
+      role: "Back-end Developer",
       image: "/team-4.jpg",
+    },
+    {
+      name: "LALOUANI Yanis",
+      role: "Marketing",
+      image: "/team-lalouani.jpg",
+    },
+    {
+      name: "OUAHIB Elyes",
+      role: "Video Editor",
+      image: "/team-ouahib.jpg",
     },
   ];
 
   return (
     <section
       id="team"
-      className="flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20"
+      className="flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 relative"
       style={{
-        minHeight: "906px",
+        minHeight: "1000px",
       }}
     >
+      {/* Ellipse Background - Top Right */}
+      <div className="absolute top-0 right-0 pointer-events-none overflow-hidden" style={{ width: '183px', height: '121px' }}>
+        <Image 
+          src="/Ellipse 2463 (3).svg" 
+          alt="" 
+          width={183} 
+          height={121}
+          className="opacity-60"
+        />
+      </div>
+
+      {/* Ellipse Background - Left Top */}
+      <div className="absolute left-0 pointer-events-none overflow-hidden" style={{ top: '80px', width: '340px', height: '519px' }}>
+        <Image 
+          src="/Ellipse 2464 (1).svg" 
+          alt="" 
+          width={340} 
+          height={519}
+          className="opacity-60"
+        />
+      </div>
+
       {/* Our Team Label with Vectors */}
       <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12">
         {/* Left Vector */}
@@ -107,18 +221,42 @@ export default function Team() {
         </p>
       </div>
 
-      {/* Team Grid */}
-      <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-        {teamMembers.map((member, index) => (
+      {/* Team Circular Array - Horizontal Scroll */}
+      <div className="w-full max-w-[1800px] mx-auto relative mt-8 overflow-visible">
+        {/* Horizontal scrollable container with drag-to-scroll */}
+        <div 
+          ref={scrollContainerRef}
+          className="flex gap-6 overflow-x-auto pb-4 px-4 pt-4 select-none"
+          style={{ 
+            scrollbarWidth: 'none',
+            cursor: isGrabbing ? 'grabbing' : 'grab',
+            msOverflowStyle: 'none',
+            scrollBehavior: 'auto',
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={() => {
+            handleMouseLeave();
+            setIsPaused(false);
+          }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onScroll={handleScroll}
+        >
+
+        {/* Render cards 3 times for infinite circular scroll */}
+        {[...teamMembers, ...teamMembers, ...teamMembers].map((member, index) => (
           <div
             key={index}
-            className="group relative rounded-2xl p-[1px] transition-all duration-500 hover:-translate-y-2"
+            className="group relative rounded-2xl p-[1px] transition-all duration-500 hover:-translate-y-2 flex-shrink-0"
             style={{
               background: "linear-gradient(180deg, rgba(55,255,213,0.35) 0%, rgba(55,255,213,0.05) 100%)",
+              zIndex: 10,
+              width: "280px",
             }}
           >
             <div
-              className="relative rounded-2xl bg-black/40 backdrop-blur-md overflow-hidden"
+              className="relative rounded-2xl bg-black/40 backdrop-blur-md overflow-hidden h-full flex flex-col"
               style={{ border: "1px solid rgba(255, 255, 255, 0.06)" }}
             >
               {/* Header strip */}
@@ -129,21 +267,17 @@ export default function Team() {
                     "linear-gradient(180deg, #F8961E 0%, #107478 100%)",
                 }}
               >
-                {/* For Designer: Show full image in background */}
-                {member.role === "UI/UX Designer" && (
-                  <div className="absolute inset-0 z-0 flex items-end justify-center pb-0">
-                    <div className="relative w-[90%] h-[95%]">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover object-top"
-                        sizes="(max-width: 640px) 350px, (max-width: 768px) 380px, 420px"
-                      />
-                    </div>
-                  </div>
-                )}
-                
+                {/* Avatar Icon Background */}
+                <div className="absolute inset-0 z-0 flex items-center justify-center">
+                  <Image 
+                    src={member.role === "UI/UX Designer" ? "/female-avatar-svgrepo-com.svg" : "/male-avatar-svgrepo-com.svg"}
+                    alt="Avatar"
+                    width={250}
+                    height={220}
+                    style={{ opacity: 1 }}
+                  />
+                </div>
+
                 {/* Overlay gradient */}
                 <div
                   className="absolute inset-0 z-[1]"
@@ -153,41 +287,13 @@ export default function Team() {
                   }}
                 />
                 
-                {/* Concentric circles */}
-                <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-[2]" style={{ opacity: 0.3 }}>
-                  <div
-                    className="absolute rounded-full"
-                    style={{
-                      width: "120px",
-                      height: "120px",
-                      border: "1.5px solid rgba(163,167,177,0.5)",
-                    }}
-                  />
-                  <div
-                    className="absolute rounded-full"
-                    style={{
-                      width: "180px",
-                      height: "180px",
-                      border: "1.5px solid rgba(163,167,177,0.4)",
-                    }}
-                  />
-                  <div
-                    className="absolute rounded-full"
-                    style={{
-                      width: "240px",
-                      height: "240px",
-                      border: "1.5px solid rgba(163,167,177,0.3)",
-                    }}
-                  />
-                </div>
-                
               </div>
 
               {/* Spacer */}
               <div className="h-4" />
 
               {/* Content */}
-              <div className="px-4 sm:px-5 pt-1 pb-3 text-center">
+              <div className="px-4 sm:px-5 pt-1 pb-3 text-center flex-1 flex flex-col">
                 <h3
                   className="text-base sm:text-lg md:text-xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-[#37FFD5]"
                   style={{
@@ -205,7 +311,7 @@ export default function Team() {
                   {member.role}
                 </p>
 
-                <div className="mt-1.5 flex justify-center flex-wrap gap-1.5">
+                <div className="mt-1.5 flex justify-center flex-wrap gap-1.5 mb-3">
                   {["Reliable", "Problem Solver", "Team Player"].map((tag) => (
                     <span
                       key={tag}
@@ -223,7 +329,7 @@ export default function Team() {
               </div>
 
               {/* Footer */}
-              <div className="flex items-center justify-between px-4 sm:px-5 py-2.5 border-t border-white/5">
+              <div className="flex items-center justify-between px-4 sm:px-5 py-2.5 border-t border-white/5 mt-auto">
                 <div className="flex items-center gap-2">
                   <div
                     className="w-1.5 h-1.5 rounded-full"
@@ -257,6 +363,7 @@ export default function Team() {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

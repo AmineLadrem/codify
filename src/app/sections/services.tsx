@@ -6,11 +6,30 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="flex flex-col items-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20"
+      className="flex flex-col items-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 relative"
       style={{
         minHeight: "795px",
       }}
     >
+      {/* Ellipse Background - Between First Two Cards */}
+      <div className="absolute pointer-events-none overflow-hidden hidden lg:block" style={{ left: '27%', top: '290px', width: '280px', height: '335px' }}>
+        <Image 
+          src="/Ellipse 2463 (4).svg" 
+          alt="" 
+          width={280} 
+          height={335}
+          className="opacity-60"
+        />
+      </div>
+      <div className="absolute pointer-events-none overflow-hidden hidden lg:block" style={{ left: '60%', top: '400px', width: '280px', height: '335px' }}>
+        <Image 
+          src="/Ellipse 2463 (4).svg" 
+          alt="" 
+          width={280} 
+          height={335}
+          className="opacity-60"
+        />
+      </div>
       {/* Our Services Label with Vectors */}
       <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12">
         {/* Left Vector */}

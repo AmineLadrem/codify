@@ -54,3 +54,8 @@ textarea::-moz-placeholder {
   color: rgba(113, 118, 128, 1);
   opacity: 1;
 }
+
+/* Hide scrollbar for team section with drag-to-scroll */
+.flex.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}

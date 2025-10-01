@@ -278,7 +278,7 @@ export default function Contact() {
               border: "1px solid transparent",
               position: "relative",
               opacity: 1,
-              marginTop: "-260px",
+              marginTop: "-337px",
             }}
           >
             {/* Gradient Border */}

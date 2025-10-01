@@ -4,11 +4,33 @@ export default function About() {
   return (
     <section 
       id="about"
-      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-2 sm:pt-3 md:pt-4 pb-12 sm:pb-16 md:pb-20"
+      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-2 sm:pt-3 md:pt-4 pb-12 sm:pb-16 md:pb-20 relative"
       style={{
         minHeight: "auto",
       }}
     >
+      {/* Ellipse Background - Top Left */}
+      <div className="absolute top-0 left-0 pointer-events-none overflow-hidden" style={{ width: '201px', height: '335px' }}>
+        <Image 
+          src="/Ellipse 2463 (1).svg" 
+          alt="" 
+          width={201} 
+          height={335}
+          className="opacity-60"
+        />
+      </div>
+
+      {/* Ellipse Background - Bottom Right */}
+      <div className="absolute bottom-0 right-0 pointer-events-none overflow-hidden" style={{ width: '188px', height: '230px' }}>
+        <Image 
+          src="/Ellipse 2463 (2).svg" 
+          alt="" 
+          width={188} 
+          height={230}
+          className="opacity-60"
+        />
+      </div>
+
       {/* About Us Label with Vectors */}
       <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12">
         {/* Left Vector */}
