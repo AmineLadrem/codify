@@ -5,6 +5,7 @@ import About from "./sections/about";
 import Team from "./sections/team";
 import Services from "./sections/services";
 import Process from "./sections/process";
+import Contact from "./sections/contact";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Team />
       <Services />
       <Process />
+      <Contact />
     </>
   );
 }

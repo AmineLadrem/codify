@@ -11,7 +11,6 @@ export default function Navbar() {
     { name: "About Us", href: "#about" },
     { name: "Team", href: "#team" },
     { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
     { name: "Process", href: "#process" },
   ];
 
@@ -138,13 +137,37 @@ export default function Navbar() {
 
         {/* Contact Us Button - Desktop */}
         <button
-          className="hidden lg:flex flex-shrink-0 rounded-full transition-all hover:bg-white/5 items-center justify-center"
+          className="hidden lg:flex flex-shrink-0 rounded-full items-center justify-center"
           style={{
             width: "120px",
             height: "36px",
             border: "1.5px solid transparent",
             background: "transparent",
             position: "relative",
+            cursor: "pointer",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+          onClick={() => {
+            const element = document.getElementById('contact');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "translateY(-2px)";
+            e.currentTarget.style.background = "rgba(51, 245, 227, 0.05)";
+            const span = e.currentTarget.querySelector('span');
+            if (span) {
+              (span as HTMLElement).style.color = "#33F5E3";
+            }
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.background = "transparent";
+            const span = e.currentTarget.querySelector('span');
+            if (span) {
+              (span as HTMLElement).style.color = "#A1A1AA";
+            }
           }}
         >
           {/* Gradient Border */}
@@ -171,6 +194,7 @@ export default function Navbar() {
               letterSpacing: "0px",
               textTransform: "uppercase",
               color: "#A1A1AA",
+              transition: "all 0.3s ease",
             }}
           >
             Contact Us
@@ -215,6 +239,13 @@ export default function Navbar() {
                 fontSize: "13px",
                 textTransform: "uppercase",
                 color: "#A1A1AA",
+              }}
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                setIsMenuOpen(false);
               }}
             >
               Contact Us

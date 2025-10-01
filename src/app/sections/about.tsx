@@ -62,7 +62,7 @@ export default function About() {
               borderRadius: "14px",
               border: "1px solid transparent",
               background: "rgba(6, 52, 52, 0.58)",
-              padding: "8px 16px",
+              padding: "8px 12px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

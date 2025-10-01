@@ -22,7 +22,7 @@
 }
 
 body {
-  background: #000000;
+  background: rgba(0, 5, 4, 1);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -34,4 +34,23 @@ html {
 
 .bg-gradient-radial {
   background: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
+/* Contact form placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(113, 118, 128, 1);
+  opacity: 1;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: rgba(113, 118, 128, 1);
+  opacity: 1;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: rgba(113, 118, 128, 1);
+  opacity: 1;
 }
