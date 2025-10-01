@@ -6,6 +6,7 @@ import Team from "./sections/team";
 import Services from "./sections/services";
 import Process from "./sections/process";
 import Contact from "./sections/contact";
+import Footer from "./sections/footer"; 
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Services />
       <Process />
       <Contact />
+      <Footer />
     </>
   );
 }
