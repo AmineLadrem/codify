@@ -72,11 +72,6 @@ export default function Team() {
       image: "/IMG_0810_bg_removed.png.png",
     },
     {
-      name: "Abd-Ul-Haq Amine Ladrem",
-      role: "Back-end Developer",
-      image: "/awpr.png",
-    },
-    {
       name: "DALIL Faycel",
       role: "Back-end Developer",
       image: "/team-4.jpg",

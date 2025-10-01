@@ -133,206 +133,201 @@ export default function Contact() {
         />
       </div>
 
-      {/* Badge Component - Left aligned with more bottom spacing */}
-      <div className="w-full max-w-[1200px] mx-auto mt-24 sm:mt-28 md:mt-32">
-        <div className="flex justify-start mb-8">
-          <div
-            className="inline-flex items-center px-3 sm:px-4"
-            style={{
-              maxWidth: "343px",
-              width: "auto",
-              height: "auto",
-              minHeight: "38px",
-              borderRadius: "100px",
-              gap: "8px",
-              padding: "9px 14px",
-              background: "#28837173",
-              border: "1px solid transparent",
-              backgroundClip: "padding-box",
-              position: "relative",
-            }}
-          >
-            {/* Gradient Border */}
-            <div
-              style={{
-                position: "absolute",
-                inset: -1,
-                borderRadius: "100px",
-                padding: "1px",
-                background: "linear-gradient(0deg, #38DDBC, #38DDBC)",
-                WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                WebkitMaskComposite: "xor",
-                maskComposite: "exclude",
-                pointerEvents: "none",
-                zIndex: -1,
-              }}
-            />
-            {/* Sparkle Icon */}
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="flex-shrink-0 sm:w-5 sm:h-5"
-            >
-              <path
-                d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
-                fill="#CAD5FF"
-              />
-              <path
-                d="M19 3L20 6L23 7L20 8L19 11L18 8L15 7L18 6L19 3Z"
-                fill="#CAD5FF"
-              />
-            </svg>
-            <span
-              className="text-xs sm:text-sm md:text-base"
-              style={{
-                background: "#CAD5FF",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                fontFamily: "Manrope, sans-serif",
-                fontWeight: 500,
-                lineHeight: "1.4",
-                letterSpacing: "0%",
-                textAlign: "center",
-                whiteSpace: "nowrap",
-              }}
-            >
-                Let's Build Something Great Together.
-            </span>
-          </div>
-        </div>
-
-        {/* Heading Frame */}
-        <div className="w-full max-w-[500px] mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44.9px]" style={{
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 700,
-            lineHeight: "1.3",
-            letterSpacing: "-1.8px",
-            verticalAlign: "middle",
-            background: "linear-gradient(102.61deg, #EDFEFF 12.74%, #D8F5F6 64.75%, #0D7769 82.45%), linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            margin: 0,
-          }}>
-            # Let's Build Something Great Together.
-          </h2>
-        </div>
-
-        {/* Social Media Icons */}
-        <div style={{
-          display: "flex",
-          gap: "20px",
-          marginBottom: "64px",
-        }}>
-          {/* Instagram */}
-          <a
-            href="https://www.instagram.com/codify_agency?igsh=Y2F1MzBlY2lqM2hz"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "12px",
-              background: "linear-gradient(135deg, rgba(131, 58, 180, 0.1) 0%, rgba(253, 29, 29, 0.1) 50%, rgba(252, 176, 69, 0.1) 100%)",
-              border: "1px solid rgba(253, 29, 29, 0.2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "linear-gradient(135deg, rgba(131, 58, 180, 0.2) 0%, rgba(253, 29, 29, 0.2) 50%, rgba(252, 176, 69, 0.2) 100%)";
-              e.currentTarget.style.borderColor = "rgba(253, 29, 29, 0.5)";
-              e.currentTarget.style.transform = "translateY(-3px)";
-              e.currentTarget.style.boxShadow = "0px 8px 20px rgba(253, 29, 29, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "linear-gradient(135deg, rgba(131, 58, 180, 0.1) 0%, rgba(253, 29, 29, 0.1) 50%, rgba(252, 176, 69, 0.1) 100%)";
-              e.currentTarget.style.borderColor = "rgba(253, 29, 29, 0.2)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            <Image src="/instagram1.svg" alt="Instagram" width={24} height={24} />
-          </a>
-
-          {/* WhatsApp */}
-          <a
-            href="https://wa.me/213675659562"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "12px",
-              background: "linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.1) 100%)",
-              border: "1px solid rgba(37, 211, 102, 0.2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(18, 140, 126, 0.2) 100%)";
-              e.currentTarget.style.borderColor = "rgba(37, 211, 102, 0.5)";
-              e.currentTarget.style.transform = "translateY(-3px)";
-              e.currentTarget.style.boxShadow = "0px 8px 20px rgba(37, 211, 102, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.1) 100%)";
-              e.currentTarget.style.borderColor = "rgba(37, 211, 102, 0.2)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            <Image src="/whatsapp2.svg" alt="WhatsApp" width={24} height={24} />
-          </a>
-
-          {/* Email */}
-          <a
-            href="mailto:contact.codifyagency@gmail.com"
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "12px",
-              background: "rgba(34, 213, 189, 0.15)",
-              border: "1px solid rgba(34, 213, 189, 0.3)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(34, 213, 189, 0.25)";
-              e.currentTarget.style.borderColor = "rgba(34, 213, 189, 0.6)";
-              e.currentTarget.style.transform = "translateY(-3px)";
-              e.currentTarget.style.boxShadow = "0px 8px 20px rgba(34, 213, 189, 0.4)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(34, 213, 189, 0.15)";
-              e.currentTarget.style.borderColor = "rgba(34, 213, 189, 0.3)";
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            <Image src="/emaill.svg" alt="Email" width={24} height={24} />
-          </a>
-        </div>
-      </div>
-
       {/* Contact Content */}
-      <div className="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+      <div className="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start mt-24 sm:mt-28 md:mt-32">
         {/* Left Side - Content */}
         <div className="w-full lg:w-1/2">
-          {/* Add content here */}
+          {/* Badge Component */}
+          <div className="flex justify-start mb-8">
+            <div
+              className="inline-flex items-center px-3 sm:px-4"
+              style={{
+                maxWidth: "343px",
+                width: "auto",
+                height: "auto",
+                minHeight: "38px",
+                borderRadius: "100px",
+                gap: "8px",
+                padding: "9px 14px",
+                background: "#28837173",
+                border: "1px solid transparent",
+                backgroundClip: "padding-box",
+                position: "relative",
+              }}
+            >
+              {/* Gradient Border */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: -1,
+                  borderRadius: "100px",
+                  padding: "1px",
+                  background: "linear-gradient(0deg, #38DDBC, #38DDBC)",
+                  WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                  WebkitMaskComposite: "xor",
+                  maskComposite: "exclude",
+                  pointerEvents: "none",
+                  zIndex: -1,
+                }}
+              />
+              {/* Sparkle Icon */}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="flex-shrink-0 sm:w-5 sm:h-5"
+              >
+                <path
+                  d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"
+                  fill="#CAD5FF"
+                />
+                <path
+                  d="M19 3L20 6L23 7L20 8L19 11L18 8L15 7L18 6L19 3Z"
+                  fill="#CAD5FF"
+                />
+              </svg>
+              <span
+                className="text-xs sm:text-sm md:text-base"
+                style={{
+                  background: "#CAD5FF",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  fontFamily: "Manrope, sans-serif",
+                  fontWeight: 500,
+                  lineHeight: "1.4",
+                  letterSpacing: "0%",
+                  textAlign: "center",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                  Let's Build Something Great Together.
+              </span>
+            </div>
+          </div>
+
+          {/* Heading Frame */}
+          <div className="w-full max-w-[500px] mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44.9px]" style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 700,
+              lineHeight: "1.3",
+              letterSpacing: "-1.8px",
+              verticalAlign: "middle",
+              background: "linear-gradient(102.61deg, #EDFEFF 12.74%, #D8F5F6 64.75%, #0D7769 82.45%), linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              margin: 0,
+            }}>
+              # Let's Build Something Great Together.
+            </h2>
+          </div>
+
+          {/* Social Media Icons */}
+          <div style={{
+            display: "flex",
+            gap: "20px",
+          }}>
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/codify_agency?igsh=Y2F1MzBlY2lqM2hz"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, rgba(131, 58, 180, 0.1) 0%, rgba(253, 29, 29, 0.1) 50%, rgba(252, 176, 69, 0.1) 100%)",
+                border: "1px solid rgba(253, 29, 29, 0.2)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "linear-gradient(135deg, rgba(131, 58, 180, 0.2) 0%, rgba(253, 29, 29, 0.2) 50%, rgba(252, 176, 69, 0.2) 100%)";
+                e.currentTarget.style.borderColor = "rgba(253, 29, 29, 0.5)";
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0px 8px 20px rgba(253, 29, 29, 0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "linear-gradient(135deg, rgba(131, 58, 180, 0.1) 0%, rgba(253, 29, 29, 0.1) 50%, rgba(252, 176, 69, 0.1) 100%)";
+                e.currentTarget.style.borderColor = "rgba(253, 29, 29, 0.2)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <Image src="/instagram1.svg" alt="Instagram" width={24} height={24} />
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/213675659562"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.1) 100%)",
+                border: "1px solid rgba(37, 211, 102, 0.2)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(18, 140, 126, 0.2) 100%)";
+                e.currentTarget.style.borderColor = "rgba(37, 211, 102, 0.5)";
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0px 8px 20px rgba(37, 211, 102, 0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.1) 100%)";
+                e.currentTarget.style.borderColor = "rgba(37, 211, 102, 0.2)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <Image src="/whatsapp2.svg" alt="WhatsApp" width={24} height={24} />
+            </a>
+
+            {/* Email */}
+            <a
+              href="mailto:contact.codifyagency@gmail.com"
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "12px",
+                background: "rgba(34, 213, 189, 0.15)",
+                border: "1px solid rgba(34, 213, 189, 0.3)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(34, 213, 189, 0.25)";
+                e.currentTarget.style.borderColor = "rgba(34, 213, 189, 0.6)";
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0px 8px 20px rgba(34, 213, 189, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(34, 213, 189, 0.15)";
+                e.currentTarget.style.borderColor = "rgba(34, 213, 189, 0.3)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <Image src="/emaill.svg" alt="Email" width={24} height={24} />
+            </a>
+          </div>
         </div>
 
         {/* Right Side - Contact Form */}

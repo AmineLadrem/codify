@@ -373,7 +373,6 @@ export default function Footer() {
               color: "rgba(173, 178, 177, 1)",
             }}
           >
-            This page uses cookies. See cookies details here.
           </div>
         </div>
       </div>
