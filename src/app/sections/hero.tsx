@@ -27,13 +27,13 @@ export default function Hero() {
 
       {/* Grid Overlay */}
       <div
-        className="absolute top-0 bottom-0 pointer-events-none select-none hidden md:block"
+        className="absolute top-0 bottom-0 pointer-events-none select-none block"
         style={{
           left: '18%',
           right: '18%',
           backgroundImage:
             'repeating-linear-gradient(0deg, rgba(14, 77, 71, 0.6) 0px, rgba(14, 77, 71, 0.6) 2px, transparent 2px, transparent 48px), repeating-linear-gradient(90deg, rgba(14, 77, 71, 0.6) 0px, rgba(14, 77, 71, 0.6) 2px, transparent 2px, transparent 48px)',
-          opacity: 0.6,
+          opacity: 0.8,
           WebkitMaskImage:
             'linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.5) 32%, rgba(0,0,0,0.5) 68%, rgba(0,0,0,0.01) 92%, rgba(0,0,0,0) 100%), linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.01) 8%, rgba(0,0,0,0.5) 32%, rgba(0,0,0,0.5) 68%, rgba(0,0,0,0.01) 92%, rgba(0,0,0,0) 100%)',
           WebkitMaskComposite: 'source-in',
