@@ -81,7 +81,7 @@ export default function Team() {
     },
     {
       name: "Abd-Ul-Haq Amine Ladrem",
-      role: "Back-end Developer",
+      role: "Software Engineer",
       image: "/awpr.png",
     },
     {
