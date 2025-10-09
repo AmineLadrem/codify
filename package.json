@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "NODE_ENV=production node server.js",
-    "export": "next export"
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@react-email/components": "^0.5.5",
