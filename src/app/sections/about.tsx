@@ -9,7 +9,7 @@ export default function About() {
         minHeight: "auto",
       }}
     >
-      {/* Ellipse Background - Top Left */}
+    
       <div className="absolute top-0 left-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: '201px', height: '335px' }}>
         <Image 
           src="/Ellipse 2463 (1).svg" 
@@ -20,7 +20,7 @@ export default function About() {
         />
       </div>
 
-      {/* Ellipse Background - Bottom Right */}
+     
       <div className="absolute bottom-0 right-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: '188px', height: '230px' }}>
         <Image 
           src="/Ellipse 2463 (2).svg" 
@@ -31,9 +31,9 @@ export default function About() {
         />
       </div>
 
-      {/* About Us Label with Vectors */}
+  
       <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12">
-        {/* Left Vector */}
+    
         <Image
           src="/Vector 13.svg"
           alt=""
@@ -42,7 +42,7 @@ export default function About() {
           className="hidden sm:block w-32 md:w-40 lg:w-[233px] h-auto"
         />
         
-        {/* About Us Text */}
+     
         <span
           className="mx-1 sm:mx-1.5 md:mx-2"
           style={{
@@ -61,7 +61,7 @@ export default function About() {
           About Us
         </span>
         
-        {/* Right Vector */}
+    
         <Image
           src="/Vector 9.svg"
           alt=""
@@ -71,11 +71,11 @@ export default function About() {
         />
       </div>
       
-      {/* Content Container - Responsive to Navbar Width */}
+   
       <div className="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16 mt-8 sm:mt-12 md:mt-16 items-center lg:items-start lg:justify-between">
-        {/* Left Content Frame */}
+    
         <div className="w-full lg:w-auto lg:flex-1 max-w-[660px]">
-          {/* Inner Frame with Gradient Border */}
+   
           <div
             className="w-full max-w-[453px] mx-auto lg:mx-0"
             style={{
@@ -92,7 +92,7 @@ export default function About() {
               position: "relative",
             }}
           >
-            {/* Gradient Border */}
+          
             <div
               style={{
                 position: "absolute",
@@ -122,7 +122,7 @@ export default function About() {
             </span>
           </div>
           
-          {/* What is CODIFY AGENCY ? Text */}
+        
           <h2
             className="mt-6 sm:mt-8 md:mt-10 text-2xl sm:text-3xl md:text-4xl lg:text-[44.9px] text-center lg:text-left"
             style={{
@@ -139,7 +139,7 @@ export default function About() {
             What is CODIFY AGENCY ?
           </h2>
           
-          {/* Description Text */}
+       
           <p
             className="mt-6 sm:mt-8 md:mt-10 text-sm sm:text-base md:text-lg lg:text-xl text-center lg:text-left"
             style={{
@@ -154,16 +154,22 @@ export default function About() {
           </p>
         </div>
         
-        {/* Right Frame - Logo Card */}
+     
         <div className="w-full lg:w-auto flex justify-center lg:justify-end mt-8 lg:mt-0">
-          <Image
-            src="/Frame 1618874014 (1).svg"
-            alt="Codify Agency"
-            width={395}
-            height={352}
-            className="w-64 sm:w-80 md:w-96 lg:w-[395px] h-auto"
-          />
-        </div>
+  <video
+    width={395}
+    height={352}
+    className="w-64 sm:w-80 md:w-96 lg:w-[395px] h-auto rounded-2xl border border-gray-700/50"
+    autoPlay
+    loop
+    muted
+    playsInline
+  >
+    <source src="/logo-animated.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
       </div>
       
     </section>

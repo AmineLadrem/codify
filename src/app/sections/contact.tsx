@@ -299,7 +299,7 @@ export default function Contact() {
 
             {/* Email */}
             <a
-              href="mailto:contact.codifyagency@gmail.com"
+              href="mailto:contact@codify-agency.com"
               style={{
                 width: "48px",
                 height: "48px",
@@ -326,6 +326,39 @@ export default function Contact() {
               }}
             >
               <Image src="/emaill.svg" alt="Email" width={24} height={24} />
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/company/codifyagencyteam"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "12px",
+                background: "rgba(10, 102, 194, 0.1)",
+                border: "1px solid rgba(10, 102, 194, 0.2)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(10, 102, 194, 0.2)";
+                e.currentTarget.style.borderColor = "rgba(10, 102, 194, 0.5)";
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0px 8px 20px rgba(10, 102, 194, 0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(10, 102, 194, 0.1)";
+                e.currentTarget.style.borderColor = "rgba(10, 102, 194, 0.2)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <Image src="/linkedin.svg" alt="LinkedIn" width={24} height={24} />
             </a>
           </div>
         </div>

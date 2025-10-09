@@ -141,7 +141,7 @@ export default function Footer() {
 
               {/* Gmail */}
               <a
-                href="mailto:contact.codifyagency@gmail.com"
+                href="mailto:contact@codify-agency.com"
                 style={{
                   width: "40px",
                   height: "40px",
@@ -168,6 +168,39 @@ export default function Footer() {
                 }}
               >
                 <Image src="/emaill.svg" alt="Email" width={20} height={20} />
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/codifyagencyteam"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "10px",
+                  background: "rgba(10, 102, 194, 0.1)",
+                  border: "1px solid rgba(10, 102, 194, 0.2)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "all 0.3s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(10, 102, 194, 0.2)";
+                  e.currentTarget.style.borderColor = "rgba(10, 102, 194, 0.5)";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow = "0px 8px 20px rgba(10, 102, 194, 0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(10, 102, 194, 0.1)";
+                  e.currentTarget.style.borderColor = "rgba(10, 102, 194, 0.2)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <Image src="/linkedin.svg" alt="LinkedIn" width={20} height={20} />
               </a>
             </div>
           </div>
@@ -264,7 +297,7 @@ export default function Footer() {
             </h3>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.codifyagency@gmail.com"
+                href="mailto:contact@codify-agency.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -283,7 +316,7 @@ export default function Footer() {
                   e.currentTarget.style.color = "rgba(173, 178, 177, 1)";
                 }}
               >
-                contact.codifyagency@gmail.com
+                contact@codify-agency.com
               </a>
               <a
                 href="https://wa.me/213675659562"
@@ -328,6 +361,28 @@ export default function Footer() {
                 }}
               >
                 @codify_agency
+              </a>
+              <a
+                href="https://www.linkedin.com/company/codifyagencyteam"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: "var(--font-m-plus-1), sans-serif",
+                  fontWeight: 400,
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                  color: "rgba(173, 178, 177, 1)",
+                  transition: "all 0.3s ease",
+                  width: "fit-content",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "rgba(34, 213, 189, 1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "rgba(173, 178, 177, 1)";
+                }}
+              >
+                LinkedIn
               </a>
               <span
                 style={{

@@ -3,7 +3,6 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Generate HTML email template
 function generateEmailHTML(name: string, email: string, whatsapp: string, message: string) {
   return `
     <!DOCTYPE html>
@@ -143,7 +142,6 @@ export async function POST(req: NextRequest) {
   try {
     const { name, email, whatsapp, message } = await req.json();
 
-    // Validate required fields
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Name, email, and message are required' },
@@ -151,14 +149,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Generate HTML email content
     const htmlContent = generateEmailHTML(name, email, whatsapp || '', message);
 
-    // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'Codify Agency <onboarding@resend.dev>', // Replace with your verified domain email
-      to: ['contact.codifyagency@gmail.com'], // Your company email
-      replyTo: email, // Customer's email for easy reply
+      from: 'Codify Agency <onboarding@resend.dev>', 
+      to: ['contact@codify-agency.com'], 
+      replyTo: email, 
       subject: `New Contact Form Submission from ${name}`,
       html: htmlContent,
     });

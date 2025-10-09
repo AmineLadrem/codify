@@ -59,42 +59,114 @@ export default function Team() {
     {
       name: "Rimel ARAB",
       role: "UI/UX Designer",
-      image: "/image 12.svg",
+      image: "/rymel.png",
+      width: 280,
+      height: 256,
+      style: {
+        opacity: 1,
+        objectFit: 'cover' as const,
+        objectPosition: 'center top',
+        width: '100%',
+        height: '100%',
+      }
     },
     {
       name: "Abd-Ul-Haq Amine LADREM",
-      role: "Software Engineer",
-      image: "/awpr.png",
+      role: "Co-Founder & Software Engineer",
+      image: "/amine.png",
+      width: 280,
+      height: 256,
+      style: {
+        opacity: 100,
+        objectFit: 'cover' as const,
+        objectPosition: 'center top',
+        width: '100%',
+        height: '100%',
+      }
     },
     {
       name: "Islem CHETTOUF",
       role: "CEO & Front-end Developer",
-      image: "/IMG_0810_bg_removed.png.png",
+      image: "/islem.png",
+      width: 280,
+      height: 256,
+      style: {
+        opacity: 100,
+        objectFit: 'cover' as const,
+        objectPosition: 'center',
+        width: '100%',
+        height: '100%',
+      }
     },
     {
       name: "DALIL Faycel",
       role: "Back-end Developer",
-      image: "/team-4.jpg",
+      image: "/dalil.png",
+      width: 280,
+      height: 256,
+      style: {
+        opacity: 1,
+        objectFit: 'cover' as const,
+        objectPosition: 'center top',
+        width: '100%',
+        height: '100%',
+      }
     },
     {
       name: "Mohammed YOUNSI",
       role: "Founder & Projects Manager",
-      image: "/team-younsi.jpg",
+      image: "/moh.png",
+      width: 280,
+      height: 256,
+      style: {
+        opacity: 1,
+        objectFit: 'cover' as const,
+        objectPosition: 'center top',
+        width: '100%',
+        height: '100%',
+      }
     },
     {
       name: "Abdenour GAECEM",
       role: "Projects Manager",
-      image: "/team-gaecem.jpg",
+      image: "/abdenour.png",
+      width: 280,
+      height: 256,
+      style: {
+        opacity: 1,
+        objectFit: 'cover' as const,
+        objectPosition: 'center top',
+        width: '100%',
+        height: '100%',
+      }
     },
     {
       name: "Yanis LALOUANI",
       role: "Marketing",
-      image: "/team-lalouani.jpg",
+      image: "/yanis.png",
+      width: 280,
+      height: 256,
+      style: {
+        opacity: 1,
+        objectFit: 'cover' as const,
+        objectPosition: 'bottom',
+        width: '100%',
+        height: '100%',
+      }
     },
     {
       name: "Elyes OUAHIB",
       role: "Video Editor",
-      image: "/team-ouahib.jpg",
+      image: "/yasu.png",
+      width: 280,
+      height: 256,
+      style: {
+        opacity: 1,
+        objectFit: 'cover' as const,
+        objectPosition: 'center',
+        width: '100%',
+        height: '100%',
+      }
     },
   ];
 
@@ -106,7 +178,7 @@ export default function Team() {
         minHeight: "1000px",
       }}
     >
-      {/* Ellipse Background - Top Right */}
+    
       <div className="absolute top-0 right-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: '183px', height: '121px' }}>
         <Image 
           src="/Ellipse 2463 (3).svg" 
@@ -117,7 +189,7 @@ export default function Team() {
         />
       </div>
 
-      {/* Ellipse Background - Left Top */}
+     
       <div className="absolute left-0 pointer-events-none overflow-hidden hidden sm:block" style={{ top: '80px', width: '340px', height: '519px' }}>
         <Image 
           src="/Ellipse 2464 (1).svg" 
@@ -128,9 +200,9 @@ export default function Team() {
         />
       </div>
 
-      {/* Our Team Label with Vectors */}
+    
       <div className="flex items-center justify-center mb-8 sm:mb-10 md:mb-12">
-        {/* Left Vector */}
+        
         <Image
           src="/Vector 13.svg"
           alt=""
@@ -139,7 +211,7 @@ export default function Team() {
           className="hidden sm:block w-32 md:w-40 lg:w-[233px] h-auto"
         />
         
-        {/* Our Team Text */}
+      
         <span
           className="mx-1 sm:mx-1.5 md:mx-2"
           style={{
@@ -308,23 +380,20 @@ export default function Team() {
                 }}
               >
                 {/* Avatar Icon Background */}
-                <div className="absolute inset-0 z-0 flex items-center justify-center">
+                <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
                   <Image 
-                    src={member.role === "UI/UX Designer" ? "/female-avatar-svgrepo-com.svg" : "/male-avatar-svgrepo-com.svg"}
-                    alt="Avatar"
-                    width={250}
-                    height={220}
-                    style={{ opacity: 1 }}
+                    src={member.image}
+                    alt={member.name}
+                    width={member.width}
+                    height={member.height}
+                    style={member.style}
                   />
                 </div>
 
                 {/* Overlay gradient */}
                 <div
                   className="absolute inset-0 z-[1]"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, rgba(35,182,188,0.2) 0%, rgba(5,52,54,0.2) 100%)",
-                  }}
+                 
                 />
                 
               </div>

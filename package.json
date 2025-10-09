@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js",
+    "export": "next export"
   },
   "dependencies": {
     "@react-email/components": "^0.5.5",
