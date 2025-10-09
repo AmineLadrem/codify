@@ -12,13 +12,91 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({
+    name: "",
+    email: "",
+    whatsapp: "",
+    message: ""
+  });
+
+  // Validation functions
+  const validateName = (value: string): string => {
+    if (!value.trim()) {
+      return "Name is required";
+    }
+    if (value.trim().length < 2) {
+      return "Name must be at least 2 characters";
+    }
+    if (!/^[a-zA-Z\s'-]+$/.test(value)) {
+      return "Name can only contain letters, spaces, hyphens and apostrophes";
+    }
+    if (value.trim().length > 50) {
+      return "Name must be less than 50 characters";
+    }
+    return "";
+  };
+
+  const validateEmail = (value: string): string => {
+    if (!value.trim()) {
+      return "Email is required";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      return "Please enter a valid email address";
+    }
+    return "";
+  };
+
+  const validatePhone = (value: string): string => {
+    if (!value.trim()) {
+      return ""; // Phone is optional
+    }
+    // Remove all non-digit characters for validation
+    const digitsOnly = value.replace(/\D/g, '');
+    if (digitsOnly.length < 8) {
+      return "Phone number must be at least 8 digits";
+    }
+    if (digitsOnly.length > 15) {
+      return "Phone number must be less than 15 digits";
+    }
+    if (!/^[\d\s\-\+\(\)]+$/.test(value)) {
+      return "Phone number can only contain numbers, spaces, +, -, (, )";
+    }
+    return "";
+  };
+
+  const validateMessage = (value: string): string => {
+    if (!value.trim()) {
+      return "Message is required";
+    }
+    if (value.trim().length < 10) {
+      return "Message must be at least 10 characters";
+    }
+    if (value.trim().length > 1000) {
+      return "Message must be less than 1000 characters";
+    }
+    return "";
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate fields
-    if (!name || !email || !message) {
-      setErrorMessage("Please fill in all required fields");
+    // Validate all fields
+    const nameError = validateName(name);
+    const emailError = validateEmail(email);
+    const whatsappError = validatePhone(whatsapp);
+    const messageError = validateMessage(message);
+
+    setFieldErrors({
+      name: nameError,
+      email: emailError,
+      whatsapp: whatsappError,
+      message: messageError
+    });
+
+    // Check if there are any errors
+    if (nameError || emailError || whatsappError || messageError) {
+      setErrorMessage("Please fix the errors above");
       setSubmitStatus("error");
       return;
     }
@@ -50,6 +128,7 @@ export default function Contact() {
         setEmail("");
         setWhatsapp("");
         setMessage("");
+        setFieldErrors({ name: "", email: "", whatsapp: "", message: "" });
         // Reset success message after 5 seconds
         setTimeout(() => setSubmitStatus("idle"), 5000);
       } else {
@@ -438,119 +517,240 @@ export default function Contact() {
               </div>
 
               {/* Input Field 1 - Name */}
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onFocus={() => setFocusedField("name")}
-                onBlur={() => setFocusedField(null)}
-                placeholder="Name"
-                className="w-full"
-                style={{
-                  height: "41.392765045166016px",
-                  borderRadius: "6.8px",
-                  border: `0.85px solid ${focusedField === "name" ? "rgba(34, 213, 189, 1)" : "rgba(213, 215, 218, 1)"}`,
-                  background: "rgba(0, 8, 8, 0.55)",
-                  boxShadow: focusedField === "name" 
-                    ? "0px 0px 0px 3px rgba(34, 213, 189, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)" 
-                    : "0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)",
-                  padding: "0 16px",
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "13.6px",
-                  lineHeight: "20.39px",
-                  color: "rgba(255, 255, 255, 1)",
-                  outline: "none",
-                  transition: "all 0.3s ease",
-                  marginBottom: "6.8px",
-                }}
-              />
+              <div className="w-full">
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    if (fieldErrors.name) {
+                      setFieldErrors({ ...fieldErrors, name: validateName(e.target.value) });
+                    }
+                  }}
+                  onFocus={() => setFocusedField("name")}
+                  onBlur={() => {
+                    setFocusedField(null);
+                    setFieldErrors({ ...fieldErrors, name: validateName(name) });
+                  }}
+                  placeholder="Name *"
+                  className="w-full"
+                  style={{
+                    height: "41.392765045166016px",
+                    borderRadius: "6.8px",
+                    border: `0.85px solid ${
+                      fieldErrors.name 
+                        ? "rgba(255, 59, 48, 1)" 
+                        : focusedField === "name" 
+                        ? "rgba(34, 213, 189, 1)" 
+                        : "rgba(213, 215, 218, 1)"
+                    }`,
+                    background: "rgba(0, 8, 8, 0.55)",
+                    boxShadow: fieldErrors.name
+                      ? "0px 0px 0px 3px rgba(255, 59, 48, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)"
+                      : focusedField === "name" 
+                      ? "0px 0px 0px 3px rgba(34, 213, 189, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)" 
+                      : "0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)",
+                    padding: "0 16px",
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "13.6px",
+                    lineHeight: "20.39px",
+                    color: "rgba(255, 255, 255, 1)",
+                    outline: "none",
+                    transition: "all 0.3s ease",
+                    marginBottom: "4px",
+                  }}
+                />
+                {fieldErrors.name && (
+                  <p style={{
+                    color: "rgba(255, 59, 48, 1)",
+                    fontSize: "11px",
+                    marginTop: "4px",
+                    marginBottom: "6.8px",
+                    fontFamily: "Inter, sans-serif",
+                  }}>
+                    {fieldErrors.name}
+                  </p>
+                )}
+                {!fieldErrors.name && <div style={{ marginBottom: "6.8px" }} />}
+              </div>
 
               {/* Input Field 2 - WhatsApp */}
-              <input
-                type="tel"
-                value={whatsapp}
-                onChange={(e) => setWhatsapp(e.target.value)}
-                onFocus={() => setFocusedField("whatsapp")}
-                onBlur={() => setFocusedField(null)}
-                placeholder="Phone Number"
-                className="w-full"
-                style={{
-                  height: "41.392765045166016px",
-                  borderRadius: "6.8px",
-                  border: `0.85px solid ${focusedField === "whatsapp" ? "rgba(34, 213, 189, 1)" : "rgba(213, 215, 218, 1)"}`,
-                  background: "rgba(0, 8, 8, 0.55)",
-                  boxShadow: focusedField === "whatsapp" 
-                    ? "0px 0px 0px 3px rgba(34, 213, 189, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)" 
-                    : "0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)",
-                  padding: "0 16px",
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "13.6px",
-                  lineHeight: "20.39px",
-                  color: "rgba(255, 255, 255, 1)",
-                  outline: "none",
-                  transition: "all 0.3s ease",
-                  marginBottom: "6.8px",
-                }}
-              />
+              <div className="w-full">
+                <input
+                  type="tel"
+                  value={whatsapp}
+                  onChange={(e) => {
+                    setWhatsapp(e.target.value);
+                    if (fieldErrors.whatsapp) {
+                      setFieldErrors({ ...fieldErrors, whatsapp: validatePhone(e.target.value) });
+                    }
+                  }}
+                  onFocus={() => setFocusedField("whatsapp")}
+                  onBlur={() => {
+                    setFocusedField(null);
+                    setFieldErrors({ ...fieldErrors, whatsapp: validatePhone(whatsapp) });
+                  }}
+                  placeholder="Phone Number (optional)"
+                  className="w-full"
+                  style={{
+                    height: "41.392765045166016px",
+                    borderRadius: "6.8px",
+                    border: `0.85px solid ${
+                      fieldErrors.whatsapp 
+                        ? "rgba(255, 59, 48, 1)" 
+                        : focusedField === "whatsapp" 
+                        ? "rgba(34, 213, 189, 1)" 
+                        : "rgba(213, 215, 218, 1)"
+                    }`,
+                    background: "rgba(0, 8, 8, 0.55)",
+                    boxShadow: fieldErrors.whatsapp
+                      ? "0px 0px 0px 3px rgba(255, 59, 48, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)"
+                      : focusedField === "whatsapp" 
+                      ? "0px 0px 0px 3px rgba(34, 213, 189, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)" 
+                      : "0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)",
+                    padding: "0 16px",
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "13.6px",
+                    lineHeight: "20.39px",
+                    color: "rgba(255, 255, 255, 1)",
+                    outline: "none",
+                    transition: "all 0.3s ease",
+                    marginBottom: "4px",
+                  }}
+                />
+                {fieldErrors.whatsapp && (
+                  <p style={{
+                    color: "rgba(255, 59, 48, 1)",
+                    fontSize: "11px",
+                    marginTop: "4px",
+                    marginBottom: "6.8px",
+                    fontFamily: "Inter, sans-serif",
+                  }}>
+                    {fieldErrors.whatsapp}
+                  </p>
+                )}
+                {!fieldErrors.whatsapp && <div style={{ marginBottom: "6.8px" }} />}
+              </div>
 
               {/* Input Field 3 - Email */}
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onFocus={() => setFocusedField("email")}
-                onBlur={() => setFocusedField(null)}
-                placeholder="Email"
-                className="w-full"
-                style={{
-                  height: "41.392765045166016px",
-                  borderRadius: "6.8px",
-                  border: `0.85px solid ${focusedField === "email" ? "rgba(34, 213, 189, 1)" : "rgba(213, 215, 218, 1)"}`,
-                  background: "rgba(0, 8, 8, 0.55)",
-                  boxShadow: focusedField === "email" 
-                    ? "0px 0px 0px 3px rgba(34, 213, 189, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)" 
-                    : "0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)",
-                  padding: "0 16px",
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "13.6px",
-                  lineHeight: "20.39px",
-                  color: "rgba(255, 255, 255, 1)",
-                  outline: "none",
-                  transition: "all 0.3s ease",
-                  marginBottom: "6.8px",
-                }}
-              />
+              <div className="w-full">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (fieldErrors.email) {
+                      setFieldErrors({ ...fieldErrors, email: validateEmail(e.target.value) });
+                    }
+                  }}
+                  onFocus={() => setFocusedField("email")}
+                  onBlur={() => {
+                    setFocusedField(null);
+                    setFieldErrors({ ...fieldErrors, email: validateEmail(email) });
+                  }}
+                  placeholder="Email *"
+                  className="w-full"
+                  style={{
+                    height: "41.392765045166016px",
+                    borderRadius: "6.8px",
+                    border: `0.85px solid ${
+                      fieldErrors.email 
+                        ? "rgba(255, 59, 48, 1)" 
+                        : focusedField === "email" 
+                        ? "rgba(34, 213, 189, 1)" 
+                        : "rgba(213, 215, 218, 1)"
+                    }`,
+                    background: "rgba(0, 8, 8, 0.55)",
+                    boxShadow: fieldErrors.email
+                      ? "0px 0px 0px 3px rgba(255, 59, 48, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)"
+                      : focusedField === "email" 
+                      ? "0px 0px 0px 3px rgba(34, 213, 189, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)" 
+                      : "0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)",
+                    padding: "0 16px",
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "13.6px",
+                    lineHeight: "20.39px",
+                    color: "rgba(255, 255, 255, 1)",
+                    outline: "none",
+                    transition: "all 0.3s ease",
+                    marginBottom: "4px",
+                  }}
+                />
+                {fieldErrors.email && (
+                  <p style={{
+                    color: "rgba(255, 59, 48, 1)",
+                    fontSize: "11px",
+                    marginTop: "4px",
+                    marginBottom: "6.8px",
+                    fontFamily: "Inter, sans-serif",
+                  }}>
+                    {fieldErrors.email}
+                  </p>
+                )}
+                {!fieldErrors.email && <div style={{ marginBottom: "6.8px" }} />}
+              </div>
 
               {/* Input Field 4 - Message */}
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onFocus={() => setFocusedField("message")}
-                onBlur={() => setFocusedField(null)}
-                placeholder="Message"
-                className="w-full"
-                style={{
-                  height: "80px",
-                  borderRadius: "6.8px",
-                  border: `0.85px solid ${focusedField === "message" ? "rgba(34, 213, 189, 1)" : "rgba(213, 215, 218, 1)"}`,
-                  background: "rgba(0, 8, 8, 0.55)",
-                  boxShadow: focusedField === "message" 
-                    ? "0px 0px 0px 3px rgba(34, 213, 189, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)" 
-                    : "0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)",
-                  padding: "12px 16px",
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "13.6px",
-                  lineHeight: "20.39px",
-                  color: "rgba(255, 255, 255, 1)",
-                  outline: "none",
-                  resize: "none",
-                  transition: "all 0.3s ease",
-                }}
-              />
+              <div className="w-full">
+                <textarea
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    if (fieldErrors.message) {
+                      setFieldErrors({ ...fieldErrors, message: validateMessage(e.target.value) });
+                    }
+                  }}
+                  onFocus={() => setFocusedField("message")}
+                  onBlur={() => {
+                    setFocusedField(null);
+                    setFieldErrors({ ...fieldErrors, message: validateMessage(message) });
+                  }}
+                  placeholder="Message *"
+                  className="w-full"
+                  style={{
+                    height: "80px",
+                    borderRadius: "6.8px",
+                    border: `0.85px solid ${
+                      fieldErrors.message 
+                        ? "rgba(255, 59, 48, 1)" 
+                        : focusedField === "message" 
+                        ? "rgba(34, 213, 189, 1)" 
+                        : "rgba(213, 215, 218, 1)"
+                    }`,
+                    background: "rgba(0, 8, 8, 0.55)",
+                    boxShadow: fieldErrors.message
+                      ? "0px 0px 0px 3px rgba(255, 59, 48, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)"
+                      : focusedField === "message" 
+                      ? "0px 0px 0px 3px rgba(34, 213, 189, 0.1), 0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)" 
+                      : "0px 0.85px 1.7px 0px rgba(10, 13, 18, 0.05)",
+                    padding: "12px 16px",
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "13.6px",
+                    lineHeight: "20.39px",
+                    color: "rgba(255, 255, 255, 1)",
+                    outline: "none",
+                    resize: "none",
+                    transition: "all 0.3s ease",
+                    marginBottom: "4px",
+                  }}
+                />
+                {fieldErrors.message && (
+                  <p style={{
+                    color: "rgba(255, 59, 48, 1)",
+                    fontSize: "11px",
+                    marginTop: "4px",
+                    marginBottom: "8px",
+                    fontFamily: "Inter, sans-serif",
+                  }}>
+                    {fieldErrors.message}
+                  </p>
+                )}
+                {!fieldErrors.message && <div style={{ marginBottom: "8px" }} />}
+              </div>
 
               {/* Status Messages */}
               {submitStatus === "success" && (
