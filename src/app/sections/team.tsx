@@ -55,6 +55,20 @@ export default function Team() {
     }
   }, []);
 
+  /**
+   * Team Members Configuration
+   * 
+   * mobilePosition: Controls image position on mobile devices (< 768px)
+   * desktopPosition: Controls image position on desktop devices (>= 768px)
+   * 
+   * Position options:
+   * - 'center top' - Centers horizontally, aligns to top
+   * - 'center' - Centers both horizontally and vertically
+   * - 'center bottom' - Centers horizontally, aligns to bottom
+   * - 'center 20%' - Centers horizontally, 20% from top (custom percentage)
+   * - 'center 30%' - Centers horizontally, 30% from top
+   * - 'left top', 'right top', etc. - Other combinations
+   */
   const teamMembers = [
     {
       name: "Rimel ARAB",
@@ -62,13 +76,8 @@ export default function Team() {
       image: "/rymel.png",
       width: 280,
       height: 256,
-      style: {
-        opacity: 1,
-        objectFit: 'cover' as const,
-        objectPosition: 'center top',
-        width: '100%',
-        height: '100%',
-      }
+      mobilePosition: 'center top',
+      desktopPosition: 'center top',
     },
     {
       name: "Abd-Ul-Haq Amine LADREM",
@@ -76,13 +85,8 @@ export default function Team() {
       image: "/amine.png",
       width: 280,
       height: 256,
-      style: {
-        opacity: 100,
-        objectFit: 'cover' as const,
-        objectPosition: 'center top',
-        width: '100%',
-        height: '100%',
-      }
+      mobilePosition: 'center top',
+      desktopPosition: 'center top',
     },
     {
       name: "Islem CHETTOUF",
@@ -90,13 +94,8 @@ export default function Team() {
       image: "/islem.png",
       width: 280,
       height: 256,
-      style: {
-        opacity: 100,
-        objectFit: 'cover' as const,
-        objectPosition: 'center',
-        width: '100%',
-        height: '100%',
-      }
+      mobilePosition: 'center 60%',
+      desktopPosition: 'center 60%',
     },
     {
       name: "DALIL Faycel",
@@ -104,13 +103,8 @@ export default function Team() {
       image: "/dalil.png",
       width: 280,
       height: 256,
-      style: {
-        opacity: 1,
-        objectFit: 'cover' as const,
-        objectPosition: 'center top',
-        width: '100%',
-        height: '100%',
-      }
+      mobilePosition: 'center 30%',
+      desktopPosition: 'center top',
     },
     {
       name: "Mohammed YOUNSI",
@@ -118,13 +112,8 @@ export default function Team() {
       image: "/moh.png",
       width: 280,
       height: 256,
-      style: {
-        opacity: 1,
-        objectFit: 'cover' as const,
-        objectPosition: 'center top',
-        width: '100%',
-        height: '100%',
-      }
+      mobilePosition: 'center 8%',
+      desktopPosition: 'center 8%',
     },
     {
       name: "Abdenour GAECEM",
@@ -132,13 +121,8 @@ export default function Team() {
       image: "/abdenour.png",
       width: 280,
       height: 256,
-      style: {
-        opacity: 1,
-        objectFit: 'cover' as const,
-        objectPosition: 'center top',
-        width: '100%',
-        height: '100%',
-      }
+      mobilePosition: 'center 10%',
+      desktopPosition: 'center top',
     },
     {
       name: "Yanis LALOUANI",
@@ -146,13 +130,8 @@ export default function Team() {
       image: "/yanis.png",
       width: 280,
       height: 256,
-      style: {
-        opacity: 1,
-        objectFit: 'cover' as const,
-        objectPosition: 'bottom',
-        width: '100%',
-        height: '100%',
-      }
+      mobilePosition: 'center 100%',
+      desktopPosition: 'center 100%',
     },
     {
       name: "Elyes OUAHIB",
@@ -160,13 +139,8 @@ export default function Team() {
       image: "/yasu.png",
       width: 280,
       height: 256,
-      style: {
-        opacity: 1,
-        objectFit: 'cover' as const,
-        objectPosition: 'center',
-        width: '100%',
-        height: '100%',
-      }
+      mobilePosition: 'center',
+      desktopPosition: 'center',
     },
   ];
 
@@ -373,10 +347,11 @@ export default function Team() {
             >
               {/* Header strip */}
               <div
-                className="relative h-52 sm:h-60 md:h-64"
+                className="relative"
                 style={{
                   background:
                     "linear-gradient(180deg, #F8961E 0%, #107478 100%)",
+                  height: "256px",
                 }}
               >
                 {/* Avatar Icon Background */}
@@ -386,7 +361,14 @@ export default function Team() {
                     alt={member.name}
                     width={member.width}
                     height={member.height}
-                    style={member.style}
+                    className={`team-member-image team-member-${index % 8}`}
+                    style={{
+                      opacity: 1,
+                      objectFit: 'cover',
+                      width: '100%',
+                      height: '100%',
+                      objectPosition: member.mobilePosition,
+                    }}
                   />
                 </div>
 
@@ -475,10 +457,38 @@ export default function Team() {
         </div>
       </div>
 
-      {/* Hide scrollbar */}
+      {/* Styles */}
       <style jsx>{`
         div::-webkit-scrollbar {
           display: none;
+        }
+        
+        /* Desktop responsive positioning for each team member */
+        @media (min-width: 768px) {
+          :global(.team-member-0) {
+            object-position: ${teamMembers[0].desktopPosition} !important;
+          }
+          :global(.team-member-1) {
+            object-position: ${teamMembers[1].desktopPosition} !important;
+          }
+          :global(.team-member-2) {
+            object-position: ${teamMembers[2].desktopPosition} !important;
+          }
+          :global(.team-member-3) {
+            object-position: ${teamMembers[3].desktopPosition} !important;
+          }
+          :global(.team-member-4) {
+            object-position: ${teamMembers[4].desktopPosition} !important;
+          }
+          :global(.team-member-5) {
+            object-position: ${teamMembers[5].desktopPosition} !important;
+          }
+          :global(.team-member-6) {
+            object-position: ${teamMembers[6].desktopPosition} !important;
+          }
+          :global(.team-member-7) {
+            object-position: ${teamMembers[7].desktopPosition} !important;
+          }
         }
       `}</style>
     </section>
