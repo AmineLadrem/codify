@@ -249,7 +249,6 @@ export default function Contact() {
                   zIndex: -1,
                 }}
               />
-              {/* Sparkle Icon */}
               <svg
                 width="16"
                 height="16"
@@ -287,7 +286,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Heading Frame */}
+          {/* Heading */}
           <div className="w-full max-w-[500px] mb-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44.9px]" style={{
               fontFamily: "Inter, sans-serif",
@@ -305,7 +304,7 @@ export default function Contact() {
             </h2>
           </div>
 
-          {/* Social Media Icons */}
+          {/* Social Media*/}
           <div style={{
             display: "flex",
             gap: "20px",
@@ -442,7 +441,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Side - Contact Form */}
+        {/* Contact Form */}
         <div className="w-full lg:w-1/2">
           <div
             className="w-full max-w-[519px] mx-auto lg:mx-0"
@@ -496,7 +495,7 @@ export default function Contact() {
                 </h3>
               </div>
 
-              {/* Text Frame 2 - Description */}
+              {/* Description */}
               <div className="w-full" style={{
                 opacity: 1,
                 display: "flex",
@@ -516,7 +515,7 @@ export default function Contact() {
                 </p>
               </div>
 
-              {/* Input Field 1 - Name */}
+              {/* Name */}
               <div className="w-full">
                 <input
                   type="text"
@@ -575,7 +574,7 @@ export default function Contact() {
                 {!fieldErrors.name && <div style={{ marginBottom: "6.8px" }} />}
               </div>
 
-              {/* Input Field 2 - WhatsApp */}
+              {/* WhatsApp */}
               <div className="w-full">
                 <input
                   type="tel"
@@ -634,7 +633,7 @@ export default function Contact() {
                 {!fieldErrors.whatsapp && <div style={{ marginBottom: "6.8px" }} />}
               </div>
 
-              {/* Input Field 3 - Email */}
+              {/* Email */}
               <div className="w-full">
                 <input
                   type="email"
@@ -693,7 +692,7 @@ export default function Contact() {
                 {!fieldErrors.email && <div style={{ marginBottom: "6.8px" }} />}
               </div>
 
-              {/* Input Field 4 - Message */}
+              {/* Message */}
               <div className="w-full">
                 <textarea
                   value={message}
@@ -863,7 +862,6 @@ export default function Contact() {
                       {isSubmitting ? "Sending..." : "Submit"}
                     </span>
                   </button>
-                  {/* Bottom gradient line */}
                   <div
                     style={{
                       position: "absolute",
