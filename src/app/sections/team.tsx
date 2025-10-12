@@ -90,7 +90,7 @@ export default function Team() {
     },
     {
       name: "Islem CHETTOUF",
-      role: "CEO & Front-end Developer",
+      role: "CEO & Software Engineer",
       image: "/islem.png",
       width: 280,
       height: 256,
