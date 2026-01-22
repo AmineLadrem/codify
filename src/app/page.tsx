@@ -20,25 +20,25 @@ export default function Home() {
       <Process />
       <section
         id="portfolio"
-        className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20 relative overflow-hidden"
+        className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20 relative"
       >
-        {/* Ellipse top-left - same pattern as About */}
+        {/* Ellipse top-left - same as About (viewBox 201×335, no clipping) */}
         <div className="absolute top-0 left-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: "201px", height: "335px", zIndex: 1 }}>
           <Image
-            src="/Ellipse 2463 (3).svg"
+            src="/Ellipse 2463 (1).svg"
             alt=""
             width={201}
             height={335}
             className="opacity-60"
           />
         </div>
-        {/* Ellipse bottom-right - same pattern as About */}
-        <div className="absolute bottom-0 right-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: "188px", height: "230px", zIndex: 1 }}>
+        {/* Ellipse top-right - same as Contact right (2463 (4), viewBox 280×335, no clipping) */}
+        <div className="absolute top-50 right-0 pointer-events-none overflow-hidden hidden lg:block" style={{ width: "280px", height: "335px", zIndex: 1 }}>
           <Image
-            src="/Ellipse 2464 (1).svg"
+            src="/Ellipse 2463 (4).svg"
             alt=""
-            width={188}
-            height={230}
+            width={280}
+            height={335}
             className="opacity-60"
           />
         </div>
