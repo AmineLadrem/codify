@@ -21,31 +21,18 @@ export default function Footer() {
 
   return (
     <footer
-      className="w-full flex items-center justify-center px-4 sm:px-6 md:px-8 py-8 md:py-0"
+      className="w-full px-4 sm:px-6 md:px-8 pt-6 pb-8 sm:pt-8 sm:pb-10 md:pt-10 md:pb-12"
       style={{
-        minHeight: "auto",
         background: "rgba(40, 52, 48, 0.24)",
-        opacity: 1,
       }}
     >
-      <div
-        className="w-full max-w-[1440px] relative"
-        style={{
-          minHeight: "371px",
-          opacity: 1,
-        }}
-      >
-        {/* Inner Frame */}
-        <div
-          className="relative md:absolute flex flex-col md:flex-row w-full md:w-[1240px] md:h-[276px] md:top-[60px] md:left-[100px] gap-8 md:gap-[80px]"
-          style={{
-            opacity: 1,
-          }}
-        >
+      <div className="w-full max-w-[1200px] mx-auto">
+        {/* Main content - single column flow on mobile, row on desktop */}
+        <div className="flex flex-col sm:flex-row flex-wrap gap-5 sm:gap-10 md:gap-16 mb-6 sm:mb-10">
           {/* Left Section - Logo and Description */}
-          <div className="relative md:absolute w-full md:w-[320px] md:top-0 md:left-0">
+          <div className="w-full sm:min-w-0 md:max-w-[320px]">
             {/* Logo */}
-            <div className="mb-5">
+            <div className="mb-4 sm:mb-5">
               <Image 
                 src="/logo.svg" 
                 alt="Codify Agency Logo" 
@@ -65,14 +52,14 @@ export default function Footer() {
                 lineHeight: "24px",
                 letterSpacing: "-3%",
                 color: "rgba(173, 178, 177, 1)",
-                marginBottom: "40px",
+                marginBottom: "20px",
               }}
             >
-              Building digital solutions that transform your business and drive growth.
+              Building digital solutions businesses can depend on.
             </div>
 
             {/* Social Media Icons */}
-            <div style={{ display: "flex", gap: "12px" }}>
+            <div className="flex flex-wrap gap-3 sm:gap-[12px]">
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/codify_agency?igsh=Y2F1MzBlY2lqM2hz"
@@ -205,21 +192,22 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Middle Section - Quick Links */}
-          <div className="relative md:absolute w-full md:w-auto md:top-0 md:left-[420px]">
+          {/* Quick Links + Services - side by side on mobile for compact layout */}
+          <div className="flex flex-row gap-6 sm:gap-10 md:gap-16 sm:flex-1 w-full sm:w-auto">
+          <div className="w-full sm:w-auto sm:min-w-0 flex-1 min-w-[120px]">
             <h3
+              className="mb-3 sm:mb-5"
               style={{
                 fontFamily: "var(--font-m-plus-1), sans-serif",
                 fontWeight: 600,
-                fontSize: "16px",
+                fontSize: "15px",
                 lineHeight: "24px",
                 color: "rgba(255, 255, 255, 1)",
-                marginBottom: "20px",
               }}
             >
               Quick Links
             </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <div className="flex flex-col gap-2 sm:gap-3">
               {navigationLinks.map((link) => (
                 <a
                   key={link.name}
@@ -249,22 +237,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Section - Services */}
-          <div className="relative md:absolute w-full md:w-auto md:top-0 md:left-[620px]">
+          <div className="w-full sm:w-auto sm:min-w-0 flex-1 min-w-[120px]">
             <h3
+              className="mb-3 sm:mb-5"
               style={{
                 fontFamily: "var(--font-m-plus-1), sans-serif",
                 fontWeight: 600,
-                fontSize: "16px",
+                fontSize: "15px",
                 lineHeight: "24px",
                 color: "rgba(255, 255, 255, 1)",
-                marginBottom: "20px",
               }}
             >
               Our Services
             </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-              {["Web Development", "Mobile Apps", "UI/UX Design", "Digital Marketing", "SEO Optimization", "Cloud Solutions"].map((service) => (
+            <div className="flex flex-col gap-2 sm:gap-3">
+              {["Web Development", "Mobile Apps", "UI/UX Design", "Video Editing", "Automation and AI"].map((service) => (
                 <span
                   key={service}
                   style={{
@@ -280,155 +267,20 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
-          {/* Far Right Section - Contact Info */}
-          <div className="relative md:absolute w-full md:w-auto md:top-0 md:left-[860px]">
-            <h3
-              style={{
-                fontFamily: "var(--font-m-plus-1), sans-serif",
-                fontWeight: 600,
-                fontSize: "16px",
-                lineHeight: "24px",
-                color: "rgba(255, 255, 255, 1)",
-                marginBottom: "20px",
-              }}
-            >
-              Get In Touch
-            </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-              <a
-                href="mailto:contact@codify-agency.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily: "var(--font-m-plus-1), sans-serif",
-                  fontWeight: 400,
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "rgba(173, 178, 177, 1)",
-                  transition: "all 0.3s ease",
-                  width: "fit-content",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "rgba(34, 213, 189, 1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "rgba(173, 178, 177, 1)";
-                }}
-              >
-                contact@codify-agency.com
-              </a>
-              <a
-                href="https://wa.me/213675659562"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily: "var(--font-m-plus-1), sans-serif",
-                  fontWeight: 400,
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "rgba(173, 178, 177, 1)",
-                  transition: "all 0.3s ease",
-                  width: "fit-content",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "rgba(34, 213, 189, 1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "rgba(173, 178, 177, 1)";
-                }}
-              >
-                +213 675 659 562
-              </a>
-              <a
-                href="https://www.instagram.com/codify_agency?igsh=Y2F1MzBlY2lqM2hz"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily: "var(--font-m-plus-1), sans-serif",
-                  fontWeight: 400,
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "rgba(173, 178, 177, 1)",
-                  transition: "all 0.3s ease",
-                  width: "fit-content",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "rgba(34, 213, 189, 1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "rgba(173, 178, 177, 1)";
-                }}
-              >
-                @codify_agency
-              </a>
-              <a
-                href="https://www.linkedin.com/company/codifyagencyteam"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily: "var(--font-m-plus-1), sans-serif",
-                  fontWeight: 400,
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "rgba(173, 178, 177, 1)",
-                  transition: "all 0.3s ease",
-                  width: "fit-content",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "rgba(34, 213, 189, 1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "rgba(173, 178, 177, 1)";
-                }}
-              >
-                LinkedIn
-              </a>
-              <span
-                style={{
-                  fontFamily: "var(--font-m-plus-1), sans-serif",
-                  fontWeight: 400,
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                  color: "rgba(173, 178, 177, 1)",
-                }}
-              >
-                Available 24/7
-              </span>
-            </div>
           </div>
+        </div>
 
-
-          {/* Copyright text at bottom left */}
-          <div
-            className="relative md:absolute w-full md:w-[300px] md:bottom-0 md:left-0 mt-8 md:mt-0 text-center md:text-left"
-            style={{
-              opacity: 1,
-              fontFamily: "var(--font-m-plus-1), sans-serif",
-              fontWeight: 400,
-              fontSize: "12px",
-              lineHeight: "20px",
-              letterSpacing: "0%",
-              color: "rgba(173, 178, 177, 1)",
-            }}
-          >
-            © 2025 Codify Agency. All Rights Reserved.
-          </div>
-
-          {/* Cookie notice at bottom rightt */}
-          <div
-            className="relative md:absolute w-full md:w-[300px] md:bottom-0 md:right-0 mt-4 md:mt-0 text-center md:text-right"
-            style={{
-              opacity: 1,
-              fontFamily: "var(--font-poppins), sans-serif",
-              fontWeight: 400,
-              fontSize: "12px",
-              lineHeight: "20px",
-              letterSpacing: "0%",
-              color: "rgba(173, 178, 177, 1)",
-            }}
-          >
-          </div>
+        {/* Bottom bar - integrated, no heavy separator on mobile */}
+        <div
+          className="pt-5 sm:pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left"
+          style={{
+            fontFamily: "var(--font-m-plus-1), sans-serif",
+            fontWeight: 400,
+            fontSize: "12px",
+            color: "rgba(173, 178, 177, 1)",
+          }}
+        >
+          <span>© 2025 Codify Agency. All Rights Reserved.</span>
         </div>
       </div>
     </footer>

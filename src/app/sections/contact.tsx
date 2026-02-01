@@ -146,7 +146,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20 relative"
+      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-8 sm:pb-10 md:pb-12 relative"
       style={{
         minHeight: "400px",
       }}
@@ -213,7 +213,7 @@ export default function Contact() {
       </div>
 
       {/* Contact Content */}
-      <div className="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-start mt-24 sm:mt-28 md:mt-32">
+      <div className="w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-start mt-12 sm:mt-20 md:mt-28">
         {/* Left Side - Content */}
         <div className="w-full lg:w-1/2">
           {/* Badge Component */}
@@ -442,9 +442,9 @@ export default function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 min-w-0">
           <div
-            className="w-full max-w-[519px] mx-auto lg:mx-0"
+            className="w-full max-w-[519px] mx-auto lg:mx-0 min-w-0"
             style={{
               height: "auto",
               borderRadius: "13.6px",
