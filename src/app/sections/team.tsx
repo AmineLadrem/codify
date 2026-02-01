@@ -10,7 +10,7 @@ export default function Team() {
 
   const teamMembers = [
     { name: "Rimel ARAB", role: "UI/UX Designer", image: "/rymel.png" },
-    { name: "Abd-Ul-Haq Amine LADREM", role: "Software Engineer", image: "/amine.png" },
+    { name: "Abd-Ul-Haq Amine LADREM", role: "AI Engineer & Software Engineer | IoT Developer", image: "/amine.png" },
     { name: "Islem CHETTOUF", role: "Founder & Software Engineer", image: "/islem.png" },
     { name: "DALIL Faycel", role: "Software Engineer", image: "/dalil.png" },
     { name: "Mohammed YOUNSI", role: "Founder & Projects Manager", image: "/moh.png" },
