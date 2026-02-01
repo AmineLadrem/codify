@@ -206,7 +206,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div
-          className="lg:hidden fixed top-[80px] left-4 right-4 backdrop-blur-md rounded-2xl overflow-hidden"
+          className="lg:hidden fixed top-[72px] sm:top-[76px] left-4 right-4 backdrop-blur-md rounded-2xl overflow-hidden z-40"
           style={{
             background: "rgba(0, 0, 0, 0.95)",
             border: "1px solid rgba(255, 255, 255, 0.1)",
