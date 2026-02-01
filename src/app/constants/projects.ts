@@ -2,6 +2,17 @@ import type { Project } from '../types/portfolio';
 
 export const PROJECTS: Project[] = [
   {
+    id: 'deepfake-detection',
+    title: 'Deepfake Detection Benchmark',
+    category: 'AI Systems',
+    shortDesc: 'A comparative study of deepfake detection across spatial, frequency, temporal, and transformer-based paradigms.',
+    problem: 'Modern deepfake generation methods produce highly realistic media, making reliable and fair detection increasingly difficult.',
+    solution: 'An academic benchmarking framework that evaluates four representative detection paradigms under a unified preprocessing pipeline, controlled datasets, and standardized metrics.',
+    outcome: 'Demonstrated clear performance differences between paradigms, with transformer-based models achieving the highest accuracy while highlighting trade-offs in temporal and frequency-based approaches.',
+    stack: ['Python', 'PyTorch', 'CUDA', 'scikit-learn', 'MTCNN', 'Transformer'],
+    image: '/portfolio/DeepfakeDetection.png',
+  },  
+  {
     id: 'broom-ai',
     title: 'Broom - AI Diet Trainer',
     category: 'AI Systems',
