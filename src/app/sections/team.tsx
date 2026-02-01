@@ -9,7 +9,7 @@ export default function Team() {
   const [isGrabbing, setIsGrabbing] = useState(false);
 
   const teamMembers = [
-    { name: "Rimel ARAB", role: "UI/UX Designer", image: "/rymel.png" },
+    { name: "Rimel ARAB", role: "Product Designer", image: "/rymel.png" },
     { name: "Abd-Ul-Haq Amine LADREM", role: "AI Engineer & Software Engineer | IoT Developer", image: "/amine.png" },
     { name: "Islem CHETTOUF", role: "Co-Founder & Software Engineer", image: "/islem.png" },
     { name: "DALIL Faycel", role: "Software Engineer", image: "/dalil.png" },
@@ -301,7 +301,7 @@ export default function Team() {
                 style={{
                   width: imageSize * 0.7,
                   height: imageSize * 0.7,
-                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(55, 255, 213, 0.08)",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(55, 255, 213, 0.2)",
                 }}
               >
                 <Image
@@ -313,7 +313,7 @@ export default function Team() {
                   style={{
                     objectPosition: "center 28%",
                     transform:
-                    member.image === "/amine.png"
+                    member.image === "/amine.png" || member.image === "/rymel.png"
                       ? "scale(1)"
                       : member.image === "/islem.png"
                         ? "scale(1.1)"
@@ -323,8 +323,8 @@ export default function Team() {
               </div>
             </div>
 
-            {/* Content */}
-            <div className="px-6 pb-6 pt-0 text-center relative">
+            {/* Content - min-h keeps footer aligned when role is 1 vs 2 lines */}
+            <div className="px-6 pb-6 pt-0 text-center relative min-h-[110px]">
               <h3
                 className="text-lg font-semibold tracking-tight transition-colors duration-300 group-hover:text-teal-400"
                 style={{
