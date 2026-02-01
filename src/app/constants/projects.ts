@@ -10,6 +10,7 @@ export const PROJECTS: Project[] = [
     solution: 'Internal prototype that recognizes food via camera to simplify daily meal logging.',
     outcome: 'Improved user engagement and reduced time spent on manual data entry.',
     stack: ['Python', 'PyTorch', 'React Native', 'FastAPI'],
+    image: '/portfolio/Broom.png',
   },
   {
     id: 'skyline-vantage',
@@ -20,6 +21,7 @@ export const PROJECTS: Project[] = [
     solution: 'Unified dashboard providing central access to occupancy stats and basic financial reporting.',
     outcome: 'Simplified administrative workflows for the management team.',
     stack: ['React', 'PostgreSQL', 'Node.js', 'AWS'],
+    image: '/portfolio/proptech.png',
   },
   {
     id: 'sonatrach-smart-room',
@@ -30,6 +32,7 @@ export const PROJECTS: Project[] = [
     solution: 'Developed a system utilizing ESP32-C6 hardware with BLE/Wi-Fi and RFID functionality integrated into a web dashboard.',
     outcome: 'Centralized access management and improved workflow clarity for facility teams.',
     stack: ['ESP32-C6', 'ESP-IDF', 'Node-RED', 'MariaDB', 'Javascript'],
+    image: '/portfolio/Smartroom.png',
   },
   {
     id: 'metro-alger-access',
@@ -40,6 +43,7 @@ export const PROJECTS: Project[] = [
     solution: 'Python-based services facilitating SSH/SFTP data exchange with a custom monitoring web UI.',
     outcome: 'Enabled secure remote gate monitoring and improved data synchronization for operations.',
     stack: ['Python', 'SSH/SFTP', 'Web UI', 'System Design'],
+    image: '/portfolio/Metro.png',
   },
   {
     id: 'aero-logistics',
@@ -50,6 +54,7 @@ export const PROJECTS: Project[] = [
     solution: 'Pilot system using decentralized algorithms to manage unit coordination.',
     outcome: 'Successful demonstration of autonomous coordination in a controlled test environment.',
     stack: ['C++', 'Rust', 'ROS2', 'Reinforcement Learning'],
+    image: '/portfolio/Drone.png',
   },
   {
     id: 'luxe-voyage',
@@ -60,6 +65,7 @@ export const PROJECTS: Project[] = [
     solution: 'Early-stage MVP that aggregates available charter windows with a clean interface.',
     outcome: 'Enabled the client to launch their digital booking service for a targeted customer base.',
     stack: ['Next.js', 'Go', 'GraphQL', 'Stripe'],
+    image: '/portfolio/aviation.png',
   },
   {
     id: 'genome-pulse',
@@ -70,6 +76,7 @@ export const PROJECTS: Project[] = [
     solution: 'Concept project using a custom WebGL engine to render high-density markers.',
     outcome: 'Validated the feasibility of high-speed browser-based genetic data visualization.',
     stack: ['TypeScript', 'WebGL', 'Rust', 'WebAssembly'],
+    image: '/portfolio/Genomic.png',
   },
   {
     id: 'realestate-ar-tours',
@@ -80,6 +87,7 @@ export const PROJECTS: Project[] = [
     solution: 'Spatial UI prototype allowing users to view floor plans in AR via mobile browsers.',
     outcome: 'Improved stakeholder clarity on layout and spatial design during pre-sales.',
     stack: ['Figma', 'Three.js', 'WebXR', '8th Wall'],
+    image: '/portfolio/Ar_visualisiation.png',
   },
   {
     id: 'carbon-swap',
@@ -90,6 +98,7 @@ export const PROJECTS: Project[] = [
     solution: 'Pilot marketplace for credit retirement using a simplified ledger system.',
     outcome: 'Facilitated the verification and offset process for a select group of local partners.',
     stack: ['Solidity', 'React', 'Node.js', 'Sentinel API'],
+    image: '/portfolio/blockchain.png',
   },
   {
     id: 'neo-os',
@@ -100,6 +109,7 @@ export const PROJECTS: Project[] = [
     solution: 'Design exploration of gaze-based navigation and layered windowing systems.',
     outcome: 'Established a design framework for future spatial interface implementations.',
     stack: ['Unity', 'Figma', 'C#', 'Leap Motion'],
+    image: '/portfolio/os.png',
   },
   {
     id: 'medflow-surgical',
@@ -110,6 +120,7 @@ export const PROJECTS: Project[] = [
     solution: 'Predictive scheduling model designed to estimate procedure durations.',
     outcome: 'Improved scheduling accuracy and reduced patient waiting times.',
     stack: ['Python', 'Scikit-learn', 'GraphQL', 'Docker'],
+    image: '/portfolio/clinical.png',
   },
   {
     id: 'hectare-land-intel',
@@ -120,6 +131,7 @@ export const PROJECTS: Project[] = [
     solution: 'Integration of satellite imagery and climate history into a single assessment tool.',
     outcome: 'Enabled faster data-driven evaluations for the investment team.',
     stack: ['Next.js', 'Mapbox', 'Python', 'Google Earth Engine'],
+    image: '/portfolio/Agri_data.png',
   },
   {
     id: 'urban-flow',
@@ -130,6 +142,7 @@ export const PROJECTS: Project[] = [
     solution: 'Reinforcement learning model designed to adjust light timing based on live data.',
     outcome: 'Observed smoother traffic flow and more consistent bus arrival times during the test.',
     stack: ['TensorFlow', 'Kubernetes', 'Python', 'Kafka'],
+    image: '/portfolio/urban_trafic.png',
   },
   {
     id: 'quantum-identity',
@@ -140,6 +153,7 @@ export const PROJECTS: Project[] = [
     solution: 'Created a minimal visual system designed to reflect the precision of the hardware.',
     outcome: "Provided a professional brand foundation for the client's initial launch.",
     stack: ['Processing', 'Adobe Suite', 'Motion Strategy'],
+    image: '/portfolio/quanta.png',
   },
   {
     id: 'kinetic-pulse',
@@ -150,6 +164,7 @@ export const PROJECTS: Project[] = [
     solution: 'Internal build combining procedural 3D simulations and custom typography.',
     outcome: "Delivered a high-impact visual that clarified the startup's core message.",
     stack: ['Houdini', 'After Effects', 'Redshift'],
+    image: '/portfolio/Pulse.png',
   },
   {
     id: 'biolink-wearable',
@@ -160,6 +175,7 @@ export const PROJECTS: Project[] = [
     solution: 'A centralized dashboard concept that aggregates data from various wearables.',
     outcome: 'Simplified data review for coaches and improved patient tracking.',
     stack: ['React', 'Node.js', 'AWS HealthLake', 'TypeScript'],
+    image: '/portfolio/biolink.png',
   },
   {
     id: 'voyager-deep',
@@ -170,6 +186,7 @@ export const PROJECTS: Project[] = [
     solution: "Atmospheric 3D render focusing on the vessel's lighting and sensor systems.",
     outcome: "Supported the client's internal presentations for project funding.",
     stack: ['Cinema 4D', 'Unreal Engine 5', 'Octane'],
+    image: '/portfolio/Abyss.png',
   },
   {
     id: 'vault-secure',
@@ -180,6 +197,7 @@ export const PROJECTS: Project[] = [
     solution: 'Neural network designed to analyze interaction rhythms and identify non-human behavior.',
     outcome: "Enhanced security layers for the client's web portal.",
     stack: ['Python', 'Golang', 'Scikit-learn', 'TensorFlow'],
+    image: '/portfolio/vault.png',
   },
   {
     id: 'neural-scribe',
@@ -190,6 +208,7 @@ export const PROJECTS: Project[] = [
     solution: 'LLM implementation designed to generate initial contract drafts based on templates.',
     outcome: 'Reduced time spent on first-draft generation for common legal documents.',
     stack: ['Llama-3', 'LangGraph', 'PostgreSQL', 'Python'],
+    image: '/portfolio/Legal.png',
   },
   {
     id: 'vantage-luxury-retail',
@@ -200,6 +219,7 @@ export const PROJECTS: Project[] = [
     solution: 'Headless Next.js architecture designed for fast loading and clean navigation.',
     outcome: 'Improved mobile site performance and user experience.',
     stack: ['Next.js', 'Shopify Plus', 'Tailwind', 'Vercel'],
+    image: '/portfolio/e-com.png',
   },
   {
     id: 'solar-grid-ai',
@@ -210,6 +230,7 @@ export const PROJECTS: Project[] = [
     solution: 'Machine learning model designed to forecast energy needs and optimize storage.',
     outcome: 'Improved grid stability for the local community during peak use.',
     stack: ['TensorFlow', 'Python', 'Kafka', 'TimescaleDB'],
+    image: '/portfolio/solaris.png',
   },
   {
     id: 'abstract-motion',
@@ -220,6 +241,7 @@ export const PROJECTS: Project[] = [
     solution: 'Generative art systems combined with 3D animation.',
     outcome: 'Provided a professional visual atmosphere for the event attendees.',
     stack: ['Cinema 4D', 'X-Particles', 'Octane Render'],
+    image: '/portfolio/perception.png',
   },
   {
     id: 'cognihealth-ai',
@@ -230,6 +252,7 @@ export const PROJECTS: Project[] = [
     solution: 'AI implementation designed to conduct basic intake and identify priorities.',
     outcome: 'Simplified the intake process for clinic staff.',
     stack: ['Mistral-7B', 'RAG', 'VectorDB', 'FastAPI'],
+    image: '/portfolio/wellness_ai.png',
   },
   {
     id: 'skyline-concierge',
@@ -240,6 +263,7 @@ export const PROJECTS: Project[] = [
     solution: 'A minimal interface designed for booking shared amenities and guest access.',
     outcome: 'Increased resident use of amenities and streamlined valet requests.',
     stack: ['Figma', 'Prototyping', 'User Research'],
+    image: '/portfolio/residant.png',
   },
   {
     id: 'supply-chain-twin',
@@ -250,6 +274,7 @@ export const PROJECTS: Project[] = [
     solution: 'Interactive map interface designed to track shipments in real-time.',
     outcome: "Improved the client's ability to respond to logistics disruptions.",
     stack: ['Three.js', 'Mapbox', 'Golang', 'Kubernetes'],
+    image: '/portfolio/chain_twin.png',
   },
   {
     id: 'titan-industrial-twin',
@@ -260,6 +285,7 @@ export const PROJECTS: Project[] = [
     solution: 'A telemetry dashboard that visualizes equipment stress and operating hours.',
     outcome: 'Reduced the frequency of unscheduled repairs through better monitoring.',
     stack: ['React', 'C++', 'WebAssembly', 'MQTT'],
+    image: '/portfolio/titan.png',
   },
   {
     id: 'game-ux-ui',
@@ -270,6 +296,7 @@ export const PROJECTS: Project[] = [
     solution: 'Minimalist interface design that adapts to different gameplay contexts.',
     outcome: 'Improved player focus and reduced cognitive load in internal tests.',
     stack: ['Figma', 'Unreal Engine 5', 'Motion Design'],
+    image: '/portfolio/rpg.png',
   },
   {
     id: 'pulse-med-diag',
@@ -280,6 +307,7 @@ export const PROJECTS: Project[] = [
     solution: 'Custom WebRTC implementation with synchronized data and video streams.',
     outcome: 'Enabled effective remote collaboration for a series of medical consults.',
     stack: ['React', 'WebRTC', 'Rust', 'WASM'],
+    image: '/portfolio/pulse_diagnostic.png',
   },
   {
     id: 'proptech-valuation',
@@ -290,6 +318,7 @@ export const PROJECTS: Project[] = [
     solution: 'Internal model incorporating local traffic data and market trends.',
     outcome: 'Provided more consistent baseline valuations for the client team.',
     stack: ['XGBoost', 'Python', 'Snowflake', 'Dbt'],
+    image: '/portfolio/quantum_estate.png',
   },
   {
     id: 'heritage-museum',
@@ -300,6 +329,7 @@ export const PROJECTS: Project[] = [
     solution: '3D scanning and a web-based gallery for viewing collections remotely.',
     outcome: 'Successfully demonstrated a new way for users to engage with archives.',
     stack: ['Photogrammetry', 'Unreal Engine', 'Three.js'],
+    image: '/portfolio/archive.png',
   },
   {
     id: 'sentient-support',
@@ -310,6 +340,7 @@ export const PROJECTS: Project[] = [
     solution: 'Custom model implementation trained on internal support documentation.',
     outcome: 'Simplified the resolution of basic support tickets.',
     stack: ['GPT-4o', 'LangChain', 'Pinecone', 'Zendesk API'],
+    image: '/portfolio/sentient.png',
   },
   {
     id: 'horizon-ev-cluster',
@@ -320,6 +351,7 @@ export const PROJECTS: Project[] = [
     solution: 'Clean, layered design focusing on essential driving data.',
     outcome: 'Provided a functional framework for driver ergonomics evaluation.',
     stack: ['Figma', 'ProtoPie', 'Automotive UX'],
+    image: '/portfolio/horizon_ev.png',
   },
   {
     id: 'threat-horizon',
@@ -330,6 +362,7 @@ export const PROJECTS: Project[] = [
     solution: 'Visual metaphor designed to illustrate network security concepts.',
     outcome: 'Improved stakeholder understanding during project walkthroughs.',
     stack: ['Blender', 'After Effects', 'Redshift'],
+    image: '/portfolio/threat_horizon.png',
   },
   {
     id: 'apex-athlete-hub',
@@ -340,6 +373,7 @@ export const PROJECTS: Project[] = [
     solution: 'A unified dashboard that identifies basic fatigue and performance metrics.',
     outcome: 'Simplified training adjustments based on consolidated athlete data.',
     stack: ['React', 'D3.js', 'Python', 'AWS IoT'],
+    image: '/portfolio/apex.png',
   },
   {
     id: 'fintech-rebrand',
@@ -350,6 +384,7 @@ export const PROJECTS: Project[] = [
     solution: 'Minimal visual identity with a focus on clear typography and clean layouts.',
     outcome: "Established a professional brand foundation for the startup's launch.",
     stack: ['Figma', 'Illustrator', 'Motion Strategy'],
+    image: '/portfolio/finetech.png',
   },
   {
     id: 'vortex-viz',
@@ -360,6 +395,7 @@ export const PROJECTS: Project[] = [
     solution: 'Web-based engine designed to render complex data in a clear visual format.',
     outcome: 'Observed an improvement in the speed of identifying system irregularities.',
     stack: ['WebGL', 'Rust', 'WebAssembly', 'React'],
+    image: '/portfolio/vortex.png',
   },
   {
     id: 'cognitive-crm',
@@ -370,6 +406,7 @@ export const PROJECTS: Project[] = [
     solution: 'Simple predictive model designed to highlight leads with higher conversion likelihood.',
     outcome: 'Improved the efficiency of outbound sales efforts.',
     stack: ['Scikit-learn', 'Salesforce API', 'Node.js'],
+    image: '/portfolio/crm.png',
   },
   {
     id: 'cyberpunk-kit',
@@ -380,6 +417,7 @@ export const PROJECTS: Project[] = [
     solution: 'Internal library of modular components for complex interface design.',
     outcome: 'Reduced the time required to build high-fidelity interface prototypes.',
     stack: ['Figma', 'React Components', 'CSS'],
+    image: '/portfolio/Digital_UI_Framework.png',
   },
   {
     id: '3d-ui-motion',
@@ -390,6 +428,7 @@ export const PROJECTS: Project[] = [
     solution: 'Series of motion vignettes demonstrating spatial UI interactions.',
     outcome: 'Informed the UI direction for subsequent agency client projects.',
     stack: ['After Effects', 'Blender', 'Lottie'],
+    image: '/portfolio/Interface_Motion_Study.png',
   },
   {
     id: 'saas-marketing',
@@ -400,6 +439,7 @@ export const PROJECTS: Project[] = [
     solution: 'Modern headless architecture built with Next.js and a cloud CMS.',
     outcome: 'Measured a significant improvement in page load times and core web vitals.',
     stack: ['Next.js', 'Sanity', 'Tailwind', 'Vercel'],
+    image: '/portfolio/Headless_Marketing_Site.png',
   },
   {
     id: 'product-teaser',
@@ -410,6 +450,7 @@ export const PROJECTS: Project[] = [
     solution: 'Short 3D render focusing on the physical design and material finishes.',
     outcome: "Delivered a professional visual for the client's marketing channels.",
     stack: ['After Effects', 'Cinema 4D', 'Redshift'],
+    image: '/portfolio/Tech_Product_Teaser.png',
   },
   {
     id: 'industrial-twin-viz',
@@ -420,6 +461,7 @@ export const PROJECTS: Project[] = [
     solution: "Procedural animation illustrating the facility's workflow from start to finish.",
     outcome: 'Improved clarity in stakeholder meetings and project walkthroughs.',
     stack: ['Cinema 4D', 'Unreal Engine 5', 'After Effects'],
+    image: '/portfolio/Process_Visualization.png',
   },
   {
     id: 'institutional-crypto',
@@ -430,6 +472,7 @@ export const PROJECTS: Project[] = [
     solution: 'Unified interface with integrated order tracking and status monitoring.',
     outcome: "Enabled more efficient oversight of the group's transaction activity.",
     stack: ['React', 'Go', 'WebSockets', 'Redis'],
+    image: '/portfolio/Crypto_Dashboard_Pilot.png',
   },
   {
     id: 'velocity-gateway',
@@ -440,6 +483,7 @@ export const PROJECTS: Project[] = [
     solution: 'Edge-deployed gateway designed to streamline payment orchestration.',
     outcome: "Reduced transaction processing time for the client's platform.",
     stack: ['Go', 'Redis', 'Terraform', 'Cloudflare Workers'],
+    image: '/portfolio/Velocity_Payment_Layer.png',
   },
   {
     id: 'realestate-bidding-hub',
@@ -450,6 +494,7 @@ export const PROJECTS: Project[] = [
     solution: 'Synchronized bidding interface with real-time status updates.',
     outcome: "Successful deployment for the client's remote bidding events.",
     stack: ['Next.js', 'PostgreSQL', 'Socket.io', 'Kubernetes'],
+    image: '/portfolio/Property_Bidding_Hub.png',
   },
   {
     id: 'vitality-patient-hub',
@@ -460,6 +505,7 @@ export const PROJECTS: Project[] = [
     solution: 'Hub designed to aggregate biometric data with automated alerts.',
     outcome: 'Improved response times for clinicians monitoring patient health.',
     stack: ['React', 'Azure IoT', 'Node.js', 'Swift'],
+    image: '/portfolio/Vitality_Monitoring_Hub.png',
   },
   {
     id: 'estate-ledger-smart',
@@ -470,5 +516,6 @@ export const PROJECTS: Project[] = [
     solution: 'Secure document management system with automated status tracking.',
     outcome: 'Reduced the average time required to finalize property transactions.',
     stack: ['Solidity', 'Hardhat', 'React', 'The Graph'],
+    image: '/portfolio/Estate_Ledger_-_Closing_System.png',
   },
 ];

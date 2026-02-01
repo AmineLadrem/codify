@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import type { Project } from '../../types/portfolio';
 
 interface ProjectModalProps {
@@ -101,6 +102,18 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <p className="text-xl text-zinc-300 leading-relaxed font-light">
                   {project.solution}
                 </p>
+                {project.image && (
+                  <div className="w-full rounded-xl overflow-hidden border border-white/5 bg-zinc-900/30 mt-6">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={800}
+                      height={450}
+                      className="w-full h-auto object-cover min-h-[280px]"
+                      sizes="(max-width: 768px) 100vw, 800px"
+                    />
+                  </div>
+                )}
               </section>
             </div>
 
@@ -132,7 +145,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </aside>
           </div>
 
-          <div className="h-40" />
+          <div className="h-2" />
         </div>
       </div>
     </div>

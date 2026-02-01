@@ -10,4 +10,5 @@ export interface Project {
   solution: string;
   outcome: string;
   stack: string[];
+  image?: string;
 }
