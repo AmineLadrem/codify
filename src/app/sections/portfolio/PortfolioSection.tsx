@@ -18,7 +18,7 @@ export default function PortfolioSection() {
   }, [activeFilter]);
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto bg-zinc-950 rounded-[20px] border border-white/5 teal-border-glow shadow-2xl shadow-black overflow-hidden flex flex-col h-[780px] group/window">
+    <div className="relative w-full max-w-5xl mx-auto bg-zinc-950 rounded-[20px] border border-white/5 teal-border-glow shadow-2xl shadow-black overflow-hidden flex flex-col h-[min(65vh,500px)] md:h-[600px] lg:h-[780px] group/window">
       {/* OS-Style Window Bar */}
       <div className="h-12 border-b border-white/5 bg-zinc-950/80 backdrop-blur flex items-center justify-between px-6 shrink-0 z-30">
         <div className="flex gap-2">
@@ -32,8 +32,8 @@ export default function PortfolioSection() {
         <div className="w-12" />
       </div>
 
-      {/* Filter Navigation with teal accents */}
-      <div className="flex items-center justify-center gap-8 px-8 py-6 border-b border-white/5 bg-zinc-950/30 backdrop-blur z-20 shrink-0">
+      {/* Filter Navigation - horizontal scroll on mobile */}
+      <div className="flex items-center justify-start md:justify-center gap-4 md:gap-8 px-4 md:px-8 py-4 md:py-6 border-b border-white/5 bg-zinc-950/30 backdrop-blur z-20 shrink-0 overflow-x-auto no-scrollbar">
         {FILTERS.map((filter) => (
           <button
             key={filter}

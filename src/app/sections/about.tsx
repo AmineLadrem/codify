@@ -77,7 +77,7 @@ export default function About() {
         <div className="w-full lg:w-auto lg:flex-1 max-w-[660px]">
    
           <div
-            className="w-full max-w-[453px] mx-auto lg:mx-0"
+            className="w-full max-w-[453px] mx-auto lg:mx-0 min-w-0"
             style={{
               height: "auto",
               minHeight: "40px",
@@ -150,7 +150,11 @@ export default function About() {
               color: "rgba(255, 255, 255, 1)",
             }}
           >
-            We are a team of passionate developers, designers, and problem-solvers dedicated to transforming ideas into scalable software. Our mission is to help startups and enterprises build reliable digital products that drive innovation, efficiency, and growth. With expertise in modern technologies and a client-first approach, we deliver solutions that make an impact.
+           Codify Agency is a digital agency focused on building clear, functional, and well structured solutions for modern businesses.
+           <br />
+          We work with companies that want technology they can actually rely on, our work includes websites, web platforms, mobile applications, and custom software designed around real business needs.
+          <br />
+          When useful, we also integrate automation and AI tools to simplify workflows and reduce repetitive tasks. The goal is always the same. Build something useful, easy to maintain, and aligned with how your business operates.
           </p>
         </div>
         

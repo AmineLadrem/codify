@@ -11,7 +11,7 @@ import Footer from "./sections/footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar />
       <Hero />
       <About />
@@ -82,6 +82,6 @@ export default function Home() {
       </section>
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 }

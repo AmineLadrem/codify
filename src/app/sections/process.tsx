@@ -4,10 +4,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20 relative"
-      style={{
-        minHeight: "857px",
-      }}
+      className="flex flex-col items-center px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-20 relative min-h-[500px] md:min-h-[700px] lg:min-h-[857px]"
     >
       {/* Ellipse Background - Middle */}
       <div className="absolute pointer-events-none hidden md:block" style={{ left: '35%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, width: '481px', height: '522px' }}>

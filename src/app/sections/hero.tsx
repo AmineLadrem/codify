@@ -129,9 +129,7 @@ export default function Hero() {
           backgroundClip: "text",
         }}
       >
-        We engineer your
-        <br />
-        ideas into reality
+        We build digital solutions that help businesses move forward.
       </h1>
 
       {/* Paragraph */}
@@ -147,10 +145,8 @@ export default function Hero() {
           maxWidth: "800px",
         }}
       >
-        From websites to software, We craft scalable solutions that
-        <span className="hidden sm:inline"><br /></span>
-        <span className="sm:hidden"> </span>
-        help businesses grow, adapt, and lead in the digital era
+        From websites and applications to custom software and smart automation, we help companies turn ideas into practical, reliable systems.
+
       </p>
 
       {/* Get Started Button */}

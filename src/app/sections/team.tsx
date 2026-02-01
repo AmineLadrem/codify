@@ -11,9 +11,9 @@ export default function Team() {
   const teamMembers = [
     { name: "Rimel ARAB", role: "UI/UX Designer", image: "/rymel.png" },
     { name: "Abd-Ul-Haq Amine LADREM", role: "AI Engineer & Software Engineer | IoT Developer", image: "/amine.png" },
-    { name: "Islem CHETTOUF", role: "Founder & Software Engineer", image: "/islem.png" },
+    { name: "Islem CHETTOUF", role: "Co-Founder & Software Engineer", image: "/islem.png" },
     { name: "DALIL Faycel", role: "Software Engineer", image: "/dalil.png" },
-    { name: "Mohammed YOUNSI", role: "Founder & Projects Manager", image: "/moh.png" },
+    { name: "Mohammed YOUNSI", role: "Co-Founder & Projects Manager", image: "/moh.png" },
     { name: "Abdenour GAECEM", role: "AI Engineer", image: "/abdenour.png" },
   ];
 
@@ -91,10 +91,7 @@ export default function Team() {
   return (
     <section
       id="team"
-      className="flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 relative"
-      style={{
-        minHeight: "1000px",
-      }}
+      className="flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 relative min-h-[600px] md:min-h-[800px] lg:min-h-[950px]"
     >
     
       <div className="absolute top-0 right-0 pointer-events-none overflow-hidden hidden sm:block" style={{ width: '183px', height: '121px' }}>
@@ -177,7 +174,7 @@ export default function Team() {
             opacity: 1,
           }}
         >
-          Meet the People Behind the Code
+          Meet the people behind the work
         </h2>
         <p
           className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg max-w-3xl mx-auto px-4"
@@ -189,7 +186,7 @@ export default function Team() {
             textAlign: "center",
           }}
         >
-          Our talented team of developers, designers, and innovators work together to transform your ideas into exceptional digital solutions. With diverse expertise and a shared passion for excellence, we deliver results that exceed expectations.
+          We are a small team of developers and designers who value clarity, communication, and quality.We stay closely involved throughout each project, from planning to delivery, to make sure every solution fits the client’s goals and not just the technical requirements.
         </p>
       </div>
 
