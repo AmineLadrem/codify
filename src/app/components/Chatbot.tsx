@@ -7,13 +7,20 @@ type Message = { role: "user" | "assistant"; content: string };
 
 const WELCOME_MESSAGES = [
   "Hi! Looking to build an app or a website?",
-  "Welcome to Codefy! How can I help you scale today?",
+  "Welcome to Codify! How can I help you scale today?",
   "Hey there! Need web dev, AI, or marketing help? Ask me anything.",
   "Hi! Ready to turn your idea into a product? What are you thinking about?",
   "Welcome! We do web, custom AI, and marketing. What can I help with?",
   "Hello! Here to chat about your project or just explore what we offer?",
   "Hi! Looking for a dev team or some AI magic? Let’s talk.",
-  "Welcome to Codefy Agency. What would you like to know?",
+  "Welcome to Codify Agency. What would you like to know?",
+  "Hey! Need a custom website, AI tool, or a marketing boost? I'm here to help.",
+  "Hi there! Codify Agency builds websites, AI solutions, and runs campaigns. What's on your mind?",
+  "Welcome! Whether it's a new site, an AI project, or growth—ask me anything.",
+  "Hello! Thinking about a project or just curious what we do? Say hi.",
+  "Hi! We're Codify—web, AI, and marketing. How can I help you today?",
+  "Hey! Got a project in mind or want to know more about our services?",
+  "Welcome in! What can Codify do for you—build, automate, or grow?",
 ];
 
 function pickRandomWelcome(): string {
@@ -124,7 +131,7 @@ export default function Chatbot() {
           className={`fixed bottom-24 right-6 z-40 flex flex-col overflow-hidden rounded-2xl border border-[#0D7769]/30 bg-[rgba(0,5,4,0.98)] shadow-xl ${panelSize}`}
         >
           <div className="flex items-center justify-between border-b border-[#0D7769]/30 bg-[#0D7769]/20 px-4 py-3">
-            <span className="font-semibold text-white">Codefy Agency</span>
+            <span className="font-semibold text-white">Codify Agency</span>
             <div className="flex items-center gap-2">
               {/* Font size: Small / Medium / Large */}
               <div className="flex items-center gap-0.5 rounded-md bg-[#0D7769]/20 p-0.5">
@@ -202,7 +209,7 @@ export default function Chatbot() {
                   <span className="h-2 w-2 animate-bounce rounded-full bg-[#38DDBC]" style={{ animationDelay: "150ms" }} />
                   <span className="h-2 w-2 animate-bounce rounded-full bg-[#38DDBC]" style={{ animationDelay: "300ms" }} />
                 </span>
-                <span className="text-sm text-[#38DDBC]">Codefy AI is typing...</span>
+                <span className="text-sm text-[#38DDBC]">Codify AI is typing...</span>
               </div>
             )}
             <div ref={messagesEndRef} />
