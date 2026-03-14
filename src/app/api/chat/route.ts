@@ -13,7 +13,7 @@ CRITICAL: If a user wants to book a meeting or start a project, ask for their na
 
 const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwAjg3MjqlA3A62yW69SHM5ZfrS4395YGizCbed-1uqop8MyQH_91MSfu9m_euQe51ikw/exec';
 
-const LEAD_REGEX = /\|\|LEAD:\s*(.+?)\s*\|\s*(.+?)\s*\|\s*(.+?)\|\|/s;
+const LEAD_REGEX = /\|\|LEAD:\s*([\s\S]+?)\s*\|\s*([\s\S]+?)\s*\|\s*([\s\S]+?)\|\|/;
 
 // In-memory rate limiter: IP -> timestamps in the last minute
 const rateLimitMap = new Map<string, number[]>();
