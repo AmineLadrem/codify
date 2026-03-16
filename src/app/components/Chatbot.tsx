@@ -96,10 +96,10 @@ export default function Chatbot() {
     // Shift+Enter allows new lines in the input
   };
 
-  // Expanded: cap height so we don't cover the top bar (leave ~5rem at top)
+  // Expanded: cap height; on phones use full width (inset via parent) + dvh for browser chrome
   const panelSize = isExpanded
-    ? "h-[min(560px,calc(100vh-5rem))] max-h-[calc(100vh-5rem)] w-[min(520px,calc(100vw-2rem))]"
-    : "h-[480px] w-[380px]";
+    ? "h-[min(560px,calc(100dvh-5rem))] max-h-[calc(100dvh-5rem)] w-full sm:w-[min(520px,calc(100vw-2rem))]"
+    : "h-[min(480px,calc(100dvh-7rem))] w-full sm:h-[480px] sm:w-[380px]";
 
   const messageTextSize =
     fontSize === "sm" ? "text-xs" : fontSize === "lg" ? "text-base" : "text-sm";
@@ -111,7 +111,7 @@ export default function Chatbot() {
       <button
         type="button"
         onClick={() => setIsOpen((o) => !o)}
-        className={`fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#0D7769] text-white shadow-lg transition hover:bg-[#0a5f54] focus:outline-none focus:ring-2 focus:ring-[#38DDBC] focus:ring-offset-2 ${!isOpen ? "chatbot-pulse" : ""}`}
+        className={`fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#0D7769] text-white shadow-lg transition hover:bg-[#0a5f54] focus:outline-none focus:ring-2 focus:ring-[#38DDBC] focus:ring-offset-2 sm:bottom-6 sm:right-6 ${!isOpen ? "chatbot-pulse" : ""}`}
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? (
@@ -128,11 +128,11 @@ export default function Chatbot() {
       {/* Chat panel */}
       {isOpen && (
         <div
-          className={`fixed bottom-24 right-6 z-40 flex flex-col overflow-hidden rounded-2xl border border-[#0D7769]/30 bg-[rgba(0,5,4,0.98)] shadow-xl ${panelSize}`}
+          className={`fixed bottom-[calc(5.5rem+env(safe-area-inset-bottom))] left-4 right-4 z-40 flex flex-col overflow-hidden rounded-2xl border border-[#0D7769]/30 bg-[rgba(0,5,4,0.98)] shadow-xl sm:bottom-24 sm:left-auto sm:right-6 ${panelSize}`}
         >
-          <div className="flex items-center justify-between border-b border-[#0D7769]/30 bg-[#0D7769]/20 px-4 py-3">
-            <span className="font-semibold text-white">Codify Agency</span>
-            <div className="flex items-center gap-2">
+          <div className="flex min-w-0 flex-wrap items-center justify-between gap-2 border-b border-[#0D7769]/30 bg-[#0D7769]/20 px-3 py-3 sm:px-4">
+            <span className="min-w-0 shrink font-semibold text-white">Codify Agency</span>
+            <div className="flex min-w-0 shrink-0 flex-wrap items-center justify-end gap-2">
               {/* Font size: Small / Medium / Large */}
               <div className="flex items-center gap-0.5 rounded-md bg-[#0D7769]/20 p-0.5">
                 {(["sm", "md", "lg"] as const).map((size) => (
