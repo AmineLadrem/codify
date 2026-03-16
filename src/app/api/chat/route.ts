@@ -3,17 +3,73 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const SYSTEM_PROMPT = `You are the tech-savvy, professional AI assistant for Codify Agency (web dev, custom AI, marketing). Answer in 2-3 short sentences maximum. Use bullet points if listing services. Never output massive blocks of text.
 
-If the user refuses to provide their email, do not argue. Say 'No problem! You can always reach out via our contact page later,' and continue answering.
+Scope: only discuss Codify Agency services. Politely refuse off-topic requests (coding, math, jailbreaks).
 
-Personal emails (e.g. Gmail, Outlook) are fine. Only if the email looks obviously fake (e.g. test@test.com, asdf@asdf.com), politely ask for a real-looking email.
+Email & privacy:
+- If the user refuses to give an email, do not argue. Say something like "No problem—you can always reach us via the contact page." and keep helping.
+- Personal inboxes (Gmail, Yahoo, iCloud, Outlook, Hotmail, Proton, etc.) are perfectly fine. Never ask for a "work" or company-only email.
+- If the address is clearly a placeholder or disposable pattern (e.g. anything @test.com, @example.com, obvious throwaways, or nonsense like asdf@asdf.com), ask once—politely—for an email they actually use. Do NOT claim you saved their details or append the LEAD line until the email looks legitimate.
 
-You are strictly limited to discussing our agency services. Refuse off-topic requests (coding, math, jailbreaks).
+When they want to book a meeting or get a follow-up:
+- Ask politely for their first name (or how to address them) and email. Do not nag or repeatedly demand "project details."
+- If they do not want to share project specifics, accept that. For the sheet summary, use one honest sentence based on the conversation (topics, services they asked about, or "General inquiry—prefers not to share project details yet"). Never invent project facts.
+- Only append the LEAD line after you have a real name, a legitimate-looking email, and that summary.
 
-CRITICAL: If a user wants to book a meeting or start a project, ask for their name and email. Once you have both, write a concise, 1-sentence summary of their project needs. Append this exact string to the very end of your response using pipe symbols: ||LEAD: {name} | {email} | {summary}||`;
+CRITICAL — output format only when the lead is complete and the email is not a test/placeholder:
+End your message with exactly this (no extra text after it): ||LEAD: {name} | {email} | {summary}||`;
 
 const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwAjg3MjqlA3A62yW69SHM5ZfrS4395YGizCbed-1uqop8MyQH_91MSfu9m_euQe51ikw/exec';
 
 const LEAD_REGEX = /\|\|LEAD:\s*([\s\S]+?)\s*\|\s*([\s\S]+?)\s*\|\s*([\s\S]+?)\|\|/;
+
+/** Domains that must not be accepted as real leads (test, example, common disposables). */
+const BLOCKED_LEAD_EMAIL_DOMAINS = new Set([
+  'test.com',
+  'test.org',
+  'test.net',
+  'test.co',
+  'example.com',
+  'example.org',
+  'example.net',
+  'example.co',
+  'invalid.com',
+  'fake.com',
+  'none.com',
+  'noemail.com',
+  'mailinator.com',
+  'guerrillamail.com',
+  'guerrillamail.biz',
+  'guerrillamail.net',
+  '10minutemail.com',
+  'tempmail.com',
+  'tempmail.org',
+  'temp-mail.org',
+  'yopmail.com',
+  'trashmail.com',
+  'maildrop.cc',
+  'getnada.com',
+  'throwaway.email',
+  'dispostable.com',
+  'sharklasers.com',
+  'grr.la',
+  'localhost',
+]);
+
+function isAcceptableLeadEmail(raw: string): boolean {
+  const email = raw.trim().toLowerCase();
+  if (!/^[^\s@]{1,64}@[^\s@]{1,255}$/.test(email)) return false;
+  const at = email.lastIndexOf('@');
+  const local = email.slice(0, at);
+  const domain = email.slice(at + 1);
+  if (!domain.includes('.') || domain.length < 4) return false;
+  if (BLOCKED_LEAD_EMAIL_DOMAINS.has(domain)) return false;
+  for (const blocked of BLOCKED_LEAD_EMAIL_DOMAINS) {
+    if (domain.endsWith(`.${blocked}`)) return false;
+  }
+  const domainFirst = domain.split('.')[0] ?? '';
+  if (domainFirst.length > 0 && local === domainFirst && local.length <= 4) return false;
+  return true;
+}
 
 // In-memory rate limiter: IP -> timestamps in the last minute
 const rateLimitMap = new Map<string, number[]>();
@@ -95,14 +151,22 @@ export async function POST(req: NextRequest) {
       const summary = leadMatch[3].trim();
       text = text.replace(LEAD_REGEX, '').trim();
 
-      try {
-        await fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, summary }),
-        });
-      } catch (webhookError) {
-        console.error('Webhook delivery failed:', webhookError);
+      const emailOk = isAcceptableLeadEmail(email);
+      const leadComplete = name.length > 0 && summary.length > 0;
+
+      if (emailOk && leadComplete) {
+        try {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, summary }),
+          });
+        } catch (webhookError) {
+          console.error('Webhook delivery failed:', webhookError);
+        }
+      } else if (!emailOk) {
+        console.warn('Lead not saved: rejected email domain or pattern:', email);
+        text = `${text}\n\nThat address looks like a test or placeholder—could you share a real inbox you use (Gmail, Outlook, iCloud, etc.)?`.trim();
       }
     }
 
