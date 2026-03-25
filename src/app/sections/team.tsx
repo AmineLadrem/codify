@@ -13,7 +13,8 @@ export default function Team() {
     { name: "Abd-Ul-Haq Amine LADREM", role: "AI Engineer & Software Engineer | IoT Developer", image: "/amine.png" },
     { name: "Islem CHETTOUF", role: "Co-Founder & Software Engineer", image: "/islem.png" },
     { name: "DALIL Faycel", role: "Software Engineer", image: "/dalil.png" },
-    { name: "Mohammed YOUNSI", role: "Co-Founder & Projects Manager", image: "/moh.png" },
+    { name: "Mohammed YOUNSI", role: "CEO & Projects Manager", image: "/moh.png" },
+    { name: "Yanis LALOUANI", role: "Marketing & Software Engineer", image: "/yanis.png" },
     { name: "Abdenour GAECEM", role: "AI Engineer", image: "/abdenour.png" },
   ];
 
@@ -68,6 +69,10 @@ export default function Team() {
     const walk = (x - startXRef.current) * 2;
     scrollContainerRef.current.scrollLeft = scrollStartRef.current - walk;
     adjustScrollLoop(x);
+  };
+
+  const blockImageInteraction = (e: MouseEvent<HTMLElement>) => {
+    e.preventDefault();
   };
 
   // Islem (index 2) et Mohammed (index 4) au centre par défaut
@@ -303,6 +308,7 @@ export default function Team() {
                   height: imageSize * 0.7,
                   boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(55, 255, 213, 0.2)",
                 }}
+                onContextMenu={blockImageInteraction}
               >
                 <Image
                   src={member.image}
@@ -310,14 +316,20 @@ export default function Team() {
                   width={imageSize}
                   height={imageSize}
                   className="w-full h-full object-cover"
-                  style={{
-                    objectPosition: "center 28%",
+                  draggable={false}
+                  onContextMenu={blockImageInteraction}
+                  onDragStart={blockImageInteraction}
+                    style={{
+                    objectPosition:
+                      member.image === "/yanis.png" ? "center 35%" : "center 28%",
                     transform:
-                    member.image === "/amine.png" || member.image === "/rymel.png"
-                      ? "scale(1)"
-                      : member.image === "/islem.png"
-                        ? "scale(1.1)"
-                        : "scale(1.05)",
+                      member.image === "/amine.png" || member.image === "/rymel.png"
+                        ? "scale(1)"
+                        : member.image === "/yanis.png"
+                          ? "scale(1.22)"
+                        : member.image === "/islem.png"
+                          ? "scale(1.1)"
+                          : "scale(1.05)",
                   }}
                 />
               </div>
