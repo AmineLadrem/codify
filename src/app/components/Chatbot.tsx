@@ -96,7 +96,7 @@ export default function Chatbot() {
     // Shift+Enter allows new lines in the input
   };
 
-  // Expanded: cap height so we don't cover the top bar (leave ~5rem at top)
+  // Desktop sizing
   const panelSize = isExpanded
     ? "h-[min(560px,calc(100vh-5rem))] max-h-[calc(100vh-5rem)] w-[min(520px,calc(100vw-2rem))]"
     : "h-[480px] w-[380px]";
@@ -111,7 +111,7 @@ export default function Chatbot() {
       <button
         type="button"
         onClick={() => setIsOpen((o) => !o)}
-        className={`fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#0D7769] text-white shadow-lg transition hover:bg-[#0a5f54] focus:outline-none focus:ring-2 focus:ring-[#38DDBC] focus:ring-offset-2 ${!isOpen ? "chatbot-pulse" : ""}`}
+        className={`fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#0D7769] text-white shadow-lg transition hover:bg-[#0a5f54] focus:outline-none focus:ring-2 focus:ring-[#38DDBC] focus:ring-offset-2 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14 ${!isOpen ? "chatbot-pulse" : ""}`}
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? (
@@ -128,13 +128,13 @@ export default function Chatbot() {
       {/* Chat panel */}
       {isOpen && (
         <div
-          className={`fixed bottom-24 right-6 z-40 flex flex-col overflow-hidden rounded-2xl border border-[#0D7769]/30 bg-[rgba(0,5,4,0.98)] shadow-xl ${panelSize}`}
+          className={`fixed bottom-20 left-3 right-3 z-40 flex h-[min(78dvh,calc(100dvh-6rem))] max-h-[calc(100dvh-6rem)] w-auto flex-col overflow-hidden rounded-2xl border border-[#0D7769]/30 bg-[rgba(0,5,4,0.98)] shadow-xl sm:bottom-24 sm:left-auto sm:right-6 sm:h-auto sm:max-h-none sm:w-auto ${panelSize}`}
         >
           <div className="flex items-center justify-between border-b border-[#0D7769]/30 bg-[#0D7769]/20 px-4 py-3">
             <span className="font-semibold text-white">Codify Agency</span>
             <div className="flex items-center gap-2">
               {/* Font size: Small / Medium / Large */}
-              <div className="flex items-center gap-0.5 rounded-md bg-[#0D7769]/20 p-0.5">
+              <div className="hidden items-center gap-0.5 rounded-md bg-[#0D7769]/20 p-0.5 sm:flex">
                 {(["sm", "md", "lg"] as const).map((size) => (
                   <button
                     key={size}
@@ -153,7 +153,7 @@ export default function Chatbot() {
                 <button
                   type="button"
                   onClick={() => setIsExpanded(false)}
-                  className="rounded p-1.5 text-[#38DDBC] transition hover:bg-[#0D7769]/30 focus:outline-none focus:ring-2 focus:ring-[#38DDBC]"
+                  className="hidden rounded p-1.5 text-[#38DDBC] transition hover:bg-[#0D7769]/30 focus:outline-none focus:ring-2 focus:ring-[#38DDBC] sm:inline-flex"
                   aria-label="Collapse to small size"
                   title="Collapse to small"
                 >
@@ -165,7 +165,7 @@ export default function Chatbot() {
                 <button
                   type="button"
                   onClick={() => setIsExpanded(true)}
-                  className="rounded p-1.5 text-[#38DDBC] transition hover:bg-[#0D7769]/30 focus:outline-none focus:ring-2 focus:ring-[#38DDBC]"
+                  className="hidden rounded p-1.5 text-[#38DDBC] transition hover:bg-[#0D7769]/30 focus:outline-none focus:ring-2 focus:ring-[#38DDBC] sm:inline-flex"
                   aria-label="Expand chat"
                   title="Expand"
                 >
@@ -174,7 +174,7 @@ export default function Chatbot() {
                   </svg>
                 </button>
               )}
-              <span className="text-xs text-[#38DDBC]">AI Assistant</span>
+              <span className="text-xs text-[#38DDBC] sm:text-xs">AI Assistant</span>
             </div>
           </div>
 
@@ -184,8 +184,8 @@ export default function Chatbot() {
                 key={i}
                 className={
                   msg.role === "user"
-                    ? `ml-8 rounded-lg bg-[#0D7769]/30 px-3 py-2 ${messageTextSize} text-white`
-                    : `mr-8 rounded-lg bg-[#38DDBC]/10 px-3 py-2 ${messageTextSize} text-gray-200`
+                    ? `ml-4 rounded-lg bg-[#0D7769]/30 px-3 py-2 sm:ml-8 ${messageTextSize} text-white`
+                    : `mr-4 rounded-lg bg-[#38DDBC]/10 px-3 py-2 sm:mr-8 ${messageTextSize} text-gray-200`
                 }
               >
                 {msg.role === "assistant" ? (
@@ -203,7 +203,7 @@ export default function Chatbot() {
               </p>
             )}
             {(isLoading || isTyping) && (
-              <div className="mr-8 flex items-center gap-2 rounded-lg bg-[#38DDBC]/10 px-3 py-2">
+              <div className="mr-4 flex items-center gap-2 rounded-lg bg-[#38DDBC]/10 px-3 py-2 sm:mr-8">
                 <span className="flex gap-1">
                   <span className="h-2 w-2 animate-bounce rounded-full bg-[#38DDBC]" style={{ animationDelay: "0ms" }} />
                   <span className="h-2 w-2 animate-bounce rounded-full bg-[#38DDBC]" style={{ animationDelay: "150ms" }} />
